@@ -1,0 +1,66 @@
+Subject,Predicate,Object,New
+Person,first conviction under,Document,✓
+Person,occupation,String,
+Person,sentenced,String,
+Person,sentence date,Date,
+Person,has type,Type,
+Event,investigated by,Organization,✓
+Event,date,Date,
+Event,location,Place,
+Event,perpetrator,Organization,
+Event,has type,Type,
+Document,document identifier,String,✓
+Document,has type,Type,
+Document,date,Date,
+Document,issued by,Organization,
+Document,document identifier,String,✓
+Document,has type,Type,
+Document,publisher,Organization,
+Document,subject,Concept,
+Document,date,Date,
+Document,adopted by,Organization,✓
+Document,date adopted,Date,
+Document,signed by,Person,
+Document,maximum penalty,String,
+Document,enforced by,Organization,
+Document,condemned by,Document,
+Document,ruled against by,Document,
+Document,has type,Type,
+Person,fled to,Place,✓
+Person,occupation,String,
+Person,employer,Organization,
+Person,protest date,Date,
+Person,sentenced,String,
+Person,has type,Type,
+Organization,founded by,Person,✓
+Organization,has type,Type,
+Organization,suspended,Date,
+Organization,licence revoked,Date,
+Organization,designated as foreign agent,Date,✓
+Organization,has type,Type,
+Organization,founded,Date,
+Organization,documented cases,String,
+Organization,parent organization,Organization,✓
+Organization,has type,Type,
+Organization,jurisdiction,Place,
+Organization,blocked,Organization,
+Policy,triggered by,Event,
+Policy,implemented through,Document,
+Policy,silenced,Organization,
+Policy,prosecuted,Person,
+Policy,prosecuted,Person,
+Policy,prosecuted,Person,
+Policy,condemned by,Document,
+Policy,escalated after,Event,
+Policy,monitored by,Organization,
+Policy,enforced by,Organization,
+Policy,ruled against by,Document,
+Event,conflict origin date,Date,✓
+Event,start date,Date,
+Event,has type,Type,
+Person,released,Date,✓
+Person,occupation,String,
+Person,sentenced,String,
+Person,sentence date,Date,
+Person,speech location,Place,
+Person,has type,Type,

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Russian Censorship Policy 2022 — Conceptual Model</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f5f0eb;font-family:'IBM Plex Sans',sans-serif;margin:0;overflow:hidden}
+#graph{width:100%;height:100%}
+svg{display:block;pointer-events:none}
+.node{pointer-events:all;cursor:default}
+.node circle,.node rect{transition:filter .15s}
+.node:hover circle,.node:hover rect{filter:drop-shadow(0 0 10px rgba(0,0,0,.35))}
+.edge-label{font-family:'IBM Plex Mono',monospace;font-size:22px;fill:#666;pointer-events:none}
+#tooltip{
+  position:fixed;background:#1a0810;color:#f0e8e0;
+  padding:.6rem 1rem;border-radius:6px;
+  font-family:'IBM Plex Mono',monospace;font-size:.65rem;
+  pointer-events:none;opacity:0;transition:opacity .15s;
+  max-width:260px;line-height:1.7;z-index:100;
+}
+#tooltip.vis{opacity:1}
+.tt-lbl{font-weight:600;font-size:.72rem;margin-bottom:.3rem;color:#e8a0a0}
+.tt-row{color:#b09090}
+.tt-val{color:#e0d0d0;margin-left:.3rem}
+</style>
+</head>
+<body>
+<div id="graph"></div>
+<div id="tooltip"></div>
+<script>
+const triples = [
+  ['Russian Censorship Policy 2022','crm:P17_was_motivated_by','Russo-Ukrainian war'],
+  ['Russian Censorship Policy 2022','crm:P16_used_specific_object','Federal Law No. 32-FZ'],
+  ['Russian Censorship Policy 2022','crm:P16_used_specific_object','Novaya Gazeta'],
+  ['Russian Censorship Policy 2022','crm:P11_had_participant','Marina Ovsyannikova'],
+  ['Russian Censorship Policy 2022','crm:P11_had_participant','Alexei Gorinov'],
+  ['Russian Censorship Policy 2022','crm:P11_had_participant','Vladimir Kara-Murza'],
+  ['Russian Censorship Policy 2022','crm:P67_refers_to','End Censorship on\nVoices Against the War'],
+  ['Russian Censorship Policy 2022','crm:P17_was_motivated_by','Bucha massacre'],
+  ['Russian Censorship Policy 2022','crm:P16_used_specific_object','OVD-Info'],
+  ['Russian Censorship Policy 2022','crm:P14_carried_out_by','Roskomnadzor'],
+  ['Russian Censorship Policy 2022','crm:P67_refers_to','ECHR ruling'],
+  ['Russo-Ukrainian war','crm:P17_was_motivated_by','crm:E5_Event:war-origin'],
+  ['Russo-Ukrainian war','crm:P4_has_time-span','crm:E52_Time-Span:war-start'],
+  ['Russo-Ukrainian war','crm:P4_has_time-span','crm:E52_Time-Span:war-origin2'],
+  ['Russo-Ukrainian war','rdf:type','crm:E5_Event:war-type'],
+  ['Federal Law No. 32-FZ','crm:P14_carried_out_by','crm:E74_Group:law-duma'],
+  ['Federal Law No. 32-FZ','crm:P4_has_time-span','crm:E52_Time-Span:law-date'],
+  ['Federal Law No. 32-FZ','crm:P14_carried_out_by','crm:E21_Person:law-signer'],
+  ['Federal Law No. 32-FZ','dcterms:description','crm:E55_Type:law-penalty'],
+  ['Federal Law No. 32-FZ','crm:P14_carried_out_by','Roskomnadzor'],
+  ['Federal Law No. 32-FZ','crm:P67_refers_to','End Censorship on\nVoices Against the War'],
+  ['Federal Law No. 32-FZ','crm:P67_refers_to','ECHR ruling'],
+  ['Federal Law No. 32-FZ','rdf:type','crm:E55_Type:law-type'],
+  ['Novaya Gazeta','schema:founder','crm:E21_Person:ng-founder'],
+  ['Novaya Gazeta','rdf:type','crm:E74_Group:ng-type'],
+  ['Novaya Gazeta','crm:P4_has_time-span','crm:E52_Time-Span:ng-suspended'],
+  ['Novaya Gazeta','crm:P4_has_time-span','crm:E52_Time-Span:ng-revoked'],
+  ['Marina Ovsyannikova','crm:P26_moved_to','crm:E53_Place:mo-fled'],
+  ['Marina Ovsyannikova','schema:jobTitle','crm:E55_Type:mo-occ'],
+  ['Marina Ovsyannikova','schema:worksFor','crm:E74_Group:mo-emp'],
+  ['Marina Ovsyannikova','crm:P4_has_time-span','crm:E52_Time-Span:mo-protest'],
+  ['Marina Ovsyannikova','dcterms:description','crm:E55_Type:mo-sentenced'],
+  ['Marina Ovsyannikova','rdf:type','crm:E21_Person:mo-type'],
+  ['End Censorship on\nVoices Against the War','dcterms:identifier','crm:E42_Identifier:amnesty-id'],
+  ['End Censorship on\nVoices Against the War','rdf:type','crm:E55_Type:amnesty-type'],
+  ['End Censorship on\nVoices Against the War','dcterms:publisher','crm:E74_Group:amnesty-pub'],
+  ['End Censorship on\nVoices Against the War','crm:P129_is_about','crm:E55_Type:amnesty-subj'],
+  ['End Censorship on\nVoices Against the War','crm:P4_has_time-span','crm:E52_Time-Span:amnesty-date'],
+  ['Bucha massacre','crm:P16_used_specific_object','crm:E74_Group:bucha-inv'],
+  ['Bucha massacre','crm:P4_has_time-span','crm:E52_Time-Span:bucha-date'],
+  ['Bucha massacre','crm:P7_took_place_at','crm:E53_Place:bucha-place'],
+  ['Bucha massacre','crm:P14_carried_out_by','crm:E74_Group:bucha-perp'],
+  ['Bucha massacre','rdf:type','crm:E5_Event:bucha-type'],
+  ['OVD-Info','dcterms:description','crm:E55_Type:ovd-cases'],
+  ['OVD-Info','rdf:type','crm:E74_Group:ovd-type'],
+  ['OVD-Info','crm:P4_has_time-span','crm:E52_Time-Span:ovd-founded'],
+  ['OVD-Info','crm:P4_has_time-span','crm:E52_Time-Span:ovd-agent'],
+  ['Roskomnadzor','schema:parentOrganization','crm:E74_Group:rkn-parent'],
+  ['Roskomnadzor','rdf:type','crm:E74_Group:rkn-type'],
+  ['Roskomnadzor','crm:P7_took_place_at','crm:E53_Place:rkn-place'],
+  ['Roskomnadzor','crm:P16_used_specific_object','Novaya Gazeta'],
+  ['ECHR ruling','dcterms:identifier','crm:E42_Identifier:echr-id'],
+  ['ECHR ruling','rdf:type','crm:E55_Type:echr-type'],
+  ['ECHR ruling','crm:P4_has_time-span','crm:E52_Time-Span:echr-date'],
+  ['ECHR ruling','dcterms:publisher','crm:E74_Group:echr-issued'],
+  ['Alexei Gorinov','crm:P67_refers_to','crm:E42_Identifier:ag-conv'],
+  ['Alexei Gorinov','schema:jobTitle','crm:E55_Type:ag-occ'],
+  ['Alexei Gorinov','dcterms:description','crm:E55_Type:ag-sentenced'],
+  ['Alexei Gorinov','crm:P4_has_time-span','crm:E52_Time-Span:ag-date'],
+  ['Alexei Gorinov','rdf:type','crm:E21_Person:ag-type'],
+  ['Vladimir Kara-Murza','crm:P4_has_time-span','crm:E52_Time-Span:vk-release'],
+  ['Vladimir Kara-Murza','schema:jobTitle','crm:E55_Type:vk-occ'],
+  ['Vladimir Kara-Murza','dcterms:description','crm:E55_Type:vk-sentenced'],
+  ['Vladimir Kara-Murza','crm:P4_has_time-span','crm:E52_Time-Span:vk-sentence'],
+  ['Vladimir Kara-Murza','schema:locationCreated','crm:E53_Place:vk-place'],
+  ['Vladimir Kara-Murza','rdf:type','crm:E21_Person:vk-type'],
+];
+
+const ITEMS = new Set([
+  'Russian Censorship Policy 2022','Russo-Ukrainian war','Federal Law No. 32-FZ',
+  'Novaya Gazeta','Marina Ovsyannikova','End Censorship on\nVoices Against the War',
+  'Bucha massacre','OVD-Info','Roskomnadzor','ECHR ruling','Alexei Gorinov','Vladimir Kara-Murza',
+]);
+
+const C_CENTER = { fill:'#7a1428', stroke:'#5a0e1e', tc:'#ffffff' };
+const C_ITEM   = { fill:'#f5f0eb', stroke:'#7a1428', tc:'#1a0810' };
+const C_SAT    = { fill:'#1e3a5f', stroke:'#122440', tc:'#b8d4f0' };
+
+const NEW_SATS = new Set([]);;
+
+const ITEM_LABEL = {
+  'Russian Censorship Policy 2022': 'crm:E5_Event',
+  'Russo-Ukrainian war': 'crm:E5_Event',
+  'Federal Law No. 32-FZ': 'aio:Law',
+  'Novaya Gazeta': 'crm:E74_Group',
+  'Marina Ovsyannikova': 'crm:E21_Person',
+  'End Censorship on\nVoices Against the War': 'bibo:Report',
+  'Bucha massacre': 'crm:E5_Event',
+  'OVD-Info': 'crm:E74_Group',
+  'Roskomnadzor': 'crm:E74_Group',
+  'ECHR ruling': 'bibo:LegalDocument',
+  'Alexei Gorinov': 'crm:E21_Person',
+  'Vladimir Kara-Murza': 'crm:E21_Person',
+};
+
+const nodeMap = new Map();
+const links = [];
+const incomingMap = new Map();
+
+function getNode(id, parentId) {
+  // For sat nodes, make unique per parent to avoid cross-graph edges
+  const key = (parentId && !ITEMS.has(id) && id !== 'Russian Censorship Policy 2022')
+    ? `${parentId}__${id}` : id;
+  if (!nodeMap.has(key)) {
+    const type = id==='Russian Censorship Policy 2022' ? 'center' : ITEMS.has(id) ? 'item' : 'sat';
+    const isNew = NEW_SATS.has(id);
+    nodeMap.set(key, {id:key, label:id, type, isNew, triples:[], pred:null});
+  }
+  return nodeMap.get(key);
+}
+
+triples.forEach(([s,p,o]) => {
+  const src = getNode(s, null);
+  const tgt = getNode(o, s);
+  src.triples.push([p, o]);
+  if (tgt.type==='sat') tgt.pred = p;
+  if (!incomingMap.has(tgt.id)) incomingMap.set(tgt.id,[]);
+  incomingMap.get(tgt.id).push([s,p]);
+  links.push({source:src.id, target:tgt.id, label:p, isNew: NEW_SATS.has(o),
+    ltype: s==='Russian Censorship Policy 2022'?'center': ITEMS.has(o)?'item-item':'sat'});
+});
+
+const nodes = [...nodeMap.values()];
+
+function nodeR(d) {
+  if (d.type==="center") return 120;
+  if (d.type==="item") return 92;
+  return 96;
+}
+nodes.forEach(d => { d.r = nodeR(d); });
+
+const SVG_W=3600, SVG_H=3800;
+const svg = d3.select('#graph').append('svg')
+  .attr('viewBox',`0 0 ${SVG_W} ${SVG_H}`)
+  .attr('preserveAspectRatio','xMidYMid meet')
+  .style('width','100%').style('height','100%').style('display','block');
+
+svg.append('defs').html(`
+  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0,1 L9,5 L0,9Z" fill="#888"/>
+  </marker>
+  <marker id="ah-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0,1 L9,5 L0,9Z" fill="#4a5568"/>
+  </marker>
+  <marker id="ah-ii" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0,1 L9,5 L0,9Z" fill="#777"/>
+  </marker>
+  <marker id="ah-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0,1 L9,5 L0,9Z" fill="#c8901a"/>
+  </marker>
+`);
+
+const cx = SVG_W / 2, cy = SVG_H * 0.46;
+const ITEM_R = 820;
+const SAT_R  = 680;  // same as original — no change in depth
+const GAP    = 0.06;
+
+const itemSats = {};
+ITEMS.forEach(id => { if (id !== 'Russian Censorship Policy 2022') itemSats[id] = []; });
+nodes.forEach(d => {
+  if (d.type === 'sat') {
+    const parent = (incomingMap.get(d.id)||[])[0];
+    if (parent) {
+      const pid = parent[0];
+      if (itemSats[pid]) itemSats[pid].push(d);
+    }
+  }
+});
+
+const ITEM_ORDER = [
+  'Russo-Ukrainian war',
+  'Marina Ovsyannikova',
+  'Alexei Gorinov',
+  'Vladimir Kara-Murza',
+  'Bucha massacre',
+  'OVD-Info',
+  'End Censorship on\nVoices Against the War',
+  'ECHR ruling',
+  'Federal Law No. 32-FZ',
+  'Roskomnadzor',
+  'Novaya Gazeta',
+];
+const itemNodes = ITEM_ORDER
+  .map(id => nodes.find(d => d.id === id || d.id.replace(/\n/g,' ') === id.replace(/\n/g,' ')))
+  .filter(Boolean);
+
+const N = itemNodes.length;
+const weights = itemNodes.map(d => Math.max(1, (itemSats[d.id]||[]).length));
+const totalW  = weights.reduce((a,b) => a+b, 0);
+const usableArc = 2 * Math.PI - GAP * N;
+
+let cursor = -Math.PI / 2;
+itemNodes.forEach((item, i) => {
+  const arc     = weights[i] / totalW * usableArc;
+  const a0      = cursor + GAP / 2;
+  const a1      = a0 + arc;
+  item.angle    = (a0 + a1) / 2;
+  item.arcStart = a0;
+  item.arcEnd   = a1;
+  item.x = cx + ITEM_R * Math.cos(item.angle);
+  item.y = cy + ITEM_R * Math.sin(item.angle);
+  cursor += GAP + arc;
+
+  const sats = itemSats[item.id] || [];
+  const ns   = sats.length;
+  // Wider fan angle — sats spread sideways, SAT_R unchanged so depth is same
+  const fanSpread = Math.min((a1 - a0) * 1.8, 1.8);
+  sats.forEach((sat, j) => {
+    const t   = ns === 1 ? 0 : (j / (ns - 1) - 0.5) * 2;
+    const ang = item.angle + t * fanSpread / 2;
+    sat.x = item.x + SAT_R * Math.cos(ang);
+    sat.y = item.y + SAT_R * Math.sin(ang);
+    sat._satIdx = j;
+    sat._satTotal = ns;
+    sat._parentId = item.id;
+  });
+});
+
+const centerNode = nodes.find(d => d.type === 'center');
+centerNode.x = cx;
+centerNode.y = cy;
+
+const edgeG = svg.append('g');
+const pairCount=new Map(), pairIdx=new Map();
+links.forEach(l=>{
+  const k=[l.source.id||l.source,l.target.id||l.target].sort().join('|');
+  pairCount.set(k,(pairCount.get(k)||0)+1);
+});
+
+const parentLinkCount = new Map();
+const parentLinkIdx   = new Map();
+links.forEach(lnk => {
+  if (lnk.ltype !== 'sat') return;
+  const sid = typeof lnk.source==='object' ? lnk.source.id : lnk.source;
+  parentLinkCount.set(sid, (parentLinkCount.get(sid)||0) + 1);
+});
+
+links.forEach((lnk, _gi) => {
+  const s = nodeMap.get(typeof lnk.source==='object'?lnk.source.id:lnk.source);
+  const t = nodeMap.get(typeof lnk.target==='object'?lnk.target.id:lnk.target);
+  if (!s||!t||s.x===undefined||t.x===undefined) return;
+
+  const dx=t.x-s.x, dy=t.y-s.y, L=Math.hypot(dx,dy)||1;
+  const ux=dx/L, uy=dy/L, nx=-uy, ny=ux;
+  const x1=s.x+ux*s.r, y1=s.y+uy*s.r;
+  const x2=t.x-ux*t.r, y2=t.y-uy*t.r;
+  const k=[s.id,t.id].sort().join('|');
+  const idx=pairIdx.get(k)||0; pairIdx.set(k,idx+1);
+  const total=pairCount.get(k)||1;
+  const offset=(idx-(total-1)/2)*20;
+  const cpx=(x1+x2)/2+nx*(L*0.08+offset);
+  const cpy=(y1+y2)/2+ny*(L*0.08+offset);
+
+  const isCenter=lnk.ltype==='center';
+  const isII=lnk.ltype==='item-item';
+  const isNew=lnk.isNew;
+  const stroke=isNew?'#c8901a':isCenter?'#4a5568':isII?'#777':'#aaa';
+  const marker=isNew?'ah-new':isCenter?'ah-c':isII?'ah-ii':'ah';
+  const sw=isCenter?2:isII?1.8:1.2;
+
+  const path=edgeG.append('path')
+    .attr('d',`M${x1},${y1} Q${cpx},${cpy} ${x2},${y2}`)
+    .attr('fill','none').attr('stroke',stroke).attr('stroke-width',sw)
+    .attr('opacity',isNew?0.85:isCenter?0.9:isII?0.75:0.55)
+    .attr('marker-end',`url(#${marker})`);
+  if(isNew) path.attr('stroke-dasharray','8 4');
+
+  // ── Label position ────────────────────────────────────────────────────────
+  let lx, ly;
+  if (lnk.ltype === 'sat') {
+    const sid = s.id;
+    const i   = parentLinkIdx.get(sid) || 0;
+    parentLinkIdx.set(sid, i + 1);
+    const isMarina = s.id === 'Marina Ovsyannikova';
+    const tv = (lnk.label === 'crm:P4_has_time-span' && s.id === 'Russo-Ukrainian war') ? 0.62
+             : (lnk.label === 'dcterms:publisher') ? 0.62
+             : (lnk.label === 'dcterms:description' && s.id === 'Roskomnadzor') ? 0.62
+             : (lnk.label === 'crm:P16_used_specific_object') ? 0.18
+             : (isMarina && lnk.label === 'crm:P26_moved_to')     ? 0.18
+             : (isMarina && lnk.label === 'schema:jobTitle')       ? 0.30
+             : (isMarina && lnk.label === 'schema:worksFor')       ? 0.44
+             : (isMarina && lnk.label === 'crm:P4_has_time-span') ? 0.56
+             : (isMarina && lnk.label === 'dcterms:description')   ? 0.68
+             : (isMarina && lnk.label === 'rdf:type')              ? 0.78
+             : 0.25 + i * 0.14;
+    lx = (1-tv)**2*x1 + 2*(1-tv)*tv*cpx + tv**2*x2 + nx*16;
+    ly = (1-tv)**2*y1 + 2*(1-tv)*tv*cpy + tv**2*y2 + ny*16;
+  } else {
+    const tv2 = (lnk.label === 'condemned by' && s.id === 'Federal Law No. 32-FZ') ? 0.78 : 0.42;
+    lx = (1-tv2)**2*x1 + 2*(1-tv2)*tv2*cpx + tv2**2*x2 + nx*16;
+    ly = (1-tv2)**2*y1 + 2*(1-tv2)*tv2*cpy + tv2**2*y2 + ny*16;
+  }
+
+  edgeG.append('text').attr('class','edge-label')
+    .attr('x',lx).attr('y',ly)
+    .attr('text-anchor','middle').attr('dominant-baseline','middle')
+    .attr('fill', isNew?'#c8901a':isCenter?'#4a5568':isII?'#666':'#999')
+    .text(lnk.label);
+});
+
+const FONT="'IBM Plex Sans',sans-serif";
+const nodeG=svg.append('g');
+nodes.forEach(d=>{
+  const ng=nodeG.append('g').attr('class','node')
+    .attr('transform',`translate(${d.x},${d.y})`);
+
+  let fill, stroke, tc, fw;
+  if (d.type==='center')      { fill=C_CENTER.fill; stroke=C_CENTER.stroke; tc=C_CENTER.tc; fw='700'; }
+  else if (d.type==='item')   { fill=C_ITEM.fill;   stroke=C_ITEM.stroke;   tc=C_ITEM.tc;   fw='600'; }
+  else if (d.isNew && (d.label||d.id).replace(/:.*$/,'') === 'State Duma') { fill=C_BROWN.fill; stroke=C_BROWN.stroke; tc=C_BROWN.tc; fw='400'; }
+  else if (d.isNew)           { fill=C_NEW.fill;    stroke=C_NEW.stroke;    tc=C_NEW.tc;    fw='400'; }
+  else                        { fill=C_SAT.fill;    stroke=C_SAT.stroke;    tc=C_SAT.tc;    fw='400'; }
+
+  ng.append('circle').attr('r',d.r+3).attr('cx',2).attr('cy',3).attr('fill','rgba(0,0,0,0.15)');
+  ng.append('circle').attr('class','node-rect')
+    .attr('r',d.r).attr('fill',fill).attr('stroke',stroke).attr('stroke-width',2.5);
+
+  const maxChars = d.type==='center' ? 13 : d.type==='item' ? 11 : 11;
+  const fs = d.type==='center' ? 26 : d.type==='item' ? 21 : 20;
+  const lh = d.type==='center' ? 32 : d.type==='item' ? 26 : 24;
+
+  function wrapText(str, max) {
+    const words=str.split(' '), out=[];
+    let cur='';
+    words.forEach(w=>{
+      if((cur+(cur?' ':'')+w).length<=max) cur+=(cur?' ':'')+w;
+      else { if(cur) out.push(cur); cur=w; }
+    });
+    if(cur) out.push(cur);
+    return out;
+  }
+
+  let lines;
+  const rawLabel = (d.label || d.id).replace(/\n/g,' ');
+  const displayLabel = ITEM_LABEL[d.id] || (d.type==='sat' ? rawLabel.replace(/:[^:]*$/, '') : rawLabel);
+  const idClean = displayLabel;
+  if      (idClean==='Russian Censorship Policy 2022')           lines=['Russian','Censorship','Policy 2022'];
+  else if (idClean==='Federal Law No. 32-FZ')                    lines=['Federal Law','No. 32-FZ'];
+  else if (idClean==='End Censorship on Voices Against the War') lines=['End Censorship','on Voices','Against the War'];
+  else if (idClean==='European Court of Human Rights')            lines=['European Court','of Human Rights'];
+  else lines=wrapText(idClean, maxChars);
+
+  const maxPx=d.r*1.7;
+  lines=lines.map(l=>l.length*fs*0.55>maxPx?l.slice(0,Math.floor(maxPx/(fs*0.55))-1)+'…':l);
+
+  lines.forEach((line,i)=>{
+    ng.append('text')
+      .attr('x',0).attr('y',-(lines.length-1)*lh/2+i*lh)
+      .attr('text-anchor','middle').attr('dominant-baseline','middle')
+      .attr('font-family',FONT).attr('font-size',fs).attr('font-weight',fw)
+      .attr('fill',tc).attr('pointer-events','none').text(line);
+  });
+
+  ng.on('mousemove',function(e){
+    let html=`<div class="tt-lbl">${displayLabel}</div>`;
+    if(d.type==='sat'){
+      (incomingMap.get(d.id)||[]).forEach(([src,pred])=>{
+        html+=`<div><span class="tt-row">${src.replace(/\n/g,' ')}</span></div>`;
+        html+=`<div style="padding-left:.5rem;color:#c09090">→ ${pred}</div>`;
+      });
+    } else {
+      d.triples.slice(0,8).forEach(([p,o])=>{
+        html+=`<div><span class="tt-row">${p} → </span><span class="tt-val">${o.replace(/\n/g,' ')}</span></div>`;
+      });
+      if(d.triples.length>8) html+=`<div class="tt-row">+${d.triples.length-8} more</div>`;
+    }
+    const tt=document.getElementById('tooltip');
+    tt.innerHTML=html; tt.classList.add('vis');
+    tt.style.left=(e.clientX+18)+'px'; tt.style.top=(e.clientY-10)+'px';
+  }).on('mouseleave',()=>document.getElementById('tooltip').classList.remove('vis'));
+});
+</script>
+</body>
+</html>

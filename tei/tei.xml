@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Russian 2022 War Censorship Laws</title>
+        <respStmt>
+          <resp>TEI encoding</resp>
+          <name>Russian Censorship LOD Project</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>University of Bologna – Information Science and Cultural Heritage</publisher>
+        <date when="2025-2026"/>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Russian 2022 war censorship laws</title>
+          <publisher>Wikipedia</publisher>
+          <ptr target="https://en.wikipedia.org/wiki/Russian_2022_war_censorship_laws"/>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>This TEI document encodes the Wikipedia article on Russian 2022 war censorship laws,
+          annotating eleven entities selected for the Linked Open Data project on Russian censorship
+          policy. Entities are linked to authority files including Wikidata, VIAF, Library of
+          Congress, and ISNI.</p>
+      </projectDesc>
+      <listPrefixDef>
+        <prefixDef ident="wikidata" matchPattern="(.+)"
+          replacementPattern="https://www.wikidata.org/wiki/$1"/>
+        <prefixDef ident="viaf" matchPattern="(.+)"
+          replacementPattern="https://viaf.org/viaf/$1"/>
+        <prefixDef ident="loc" matchPattern="(.+)"
+          replacementPattern="https://id.loc.gov/authorities/$1"/>
+        <prefixDef ident="isni" matchPattern="(.+)"
+          replacementPattern="https://isni.org/isni/$1"/>
+      </listPrefixDef>
+    </encodingDesc>
+    <profileDesc>
+      <particDesc>
+        <listPerson>
+          <person xml:id="marinaOvsyannikova">
+            <persName>Marina Ovsyannikova</persName>
+            <occupation>Journalist</occupation>
+            <idno type="wikidata">wikidata:Q111239656</idno>
+            <idno type="viaf">viaf:391164782071208600004</idno>
+            <idno type="isni">isni:0000000512337302</idno>
+          </person>
+          <person xml:id="alexeiGorinov">
+            <persName>Alexei Gorinov</persName>
+            <occupation>Municipal deputy</occupation>
+            <idno type="wikidata">wikidata:Q112971444</idno>
+            <idno type="viaf">viaf:529165750876954220003</idno>
+          </person>
+          <person xml:id="vladimirKaraMurza">
+            <persName>Vladimir Kara-Murza</persName>
+            <occupation>Opposition politician</occupation>
+            <idno type="wikidata">wikidata:Q4213414</idno>
+            <idno type="viaf">viaf:187459324</idno>
+            <idno type="loc">loc:names/n2011073476</idno>
+            <idno type="isni">isni:0000000140042748</idno>
+          </person>
+          <person xml:id="vladimirPutin">
+            <persName>Vladimir Putin</persName>
+            <occupation>President of Russia</occupation>
+          </person>
+        </listPerson>
+        <listOrg>
+          <org xml:id="novayaGazeta">
+            <orgName>Novaya Gazeta</orgName>
+            <idno type="wikidata">wikidata:Q170135</idno>
+            <idno type="viaf">viaf:210803108</idno>
+            <idno type="loc">loc:names/no2021153865</idno>
+          </org>
+          <org xml:id="ovdInfo">
+            <orgName>OVD-Info</orgName>
+            <idno type="wikidata">wikidata:Q33243309</idno>
+            <idno type="viaf">viaf:4054166007098375590007</idno>
+          </org>
+          <org xml:id="roskomnadzor">
+            <orgName>Roskomnadzor</orgName>
+            <idno type="wikidata">wikidata:Q129597</idno>
+            <idno type="viaf">viaf:33173969759423392099</idno>
+          </org>
+          <org xml:id="amnestyInternational">
+            <orgName>Amnesty International</orgName>
+          </org>
+          <org xml:id="stateDuma">
+            <orgName>State Duma</orgName>
+          </org>
+          <org xml:id="europeanCourtOfHumanRights">
+            <orgName>European Court of Human Rights</orgName>
+          </org>
+        </listOrg>
+      </particDesc>
+      <settingDesc>
+        <listEvent>
+          <event xml:id="russoUkrainianWar">
+            <label>Russo-Ukrainian war</label>
+            <idno type="wikidata">wikidata:Q15860072</idno>
+            <idno type="loc">loc:subjects/sh2023001220</idno>
+          </event>
+          <event xml:id="buchaMassacre">
+            <label>Bucha massacre</label>
+            <idno type="wikidata">wikidata:Q111988562</idno>
+          </event>
+        </listEvent>
+      </settingDesc>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <div type="article">
+        <head>Russian 2022 War Censorship Laws</head>
+
+        <div type="introduction">
+          <p>On Amendments to the Criminal Code of the Russian Federation and Articles 31 and 151
+            of the Criminal Procedure Code of the Russian Federation are a group of federal laws
+            promulgated by the Russian government during the
+            <rs type="event" ref="#russoUkrainianWar">Russo-Ukrainian war</rs>. These laws establish
+            administrative and criminal punishments for "discrediting" or dissemination of
+            "unreliable information" about the Russian Armed Forces, other Russian state bodies and
+            their operations, and for calls to impose sanctions against Russia, Russian organizations
+            and citizens. These laws are sometimes referred to as the fakes laws.</p>
+
+          <p>The laws have been strongly condemned by the political opposition and by human rights
+            groups. The adoption of these laws resulted in the mass exodus of foreign media from
+            Russia and the termination of war reporting by independent Russian media. More than
+            10,000 people have been prosecuted under these laws, according to human rights NGO
+            <orgName ref="#ovdInfo">OVD-Info</orgName>.</p>
+        </div>
+
+        <div type="legislation">
+          <head>Federal Laws No. 31-FZ and No. 32-FZ</head>
+
+          <p>On 4 March 2022,
+            <rs type="legislation" xml:id="federalLaw32FZ"
+              corresp="wikidata:Q111272312">Russian Federal Laws No. 31-FZ and No. 32-FZ</rs>
+            were adopted by the <orgName ref="#stateDuma">State Duma</orgName>, approved by the
+            Federation Council and signed by <persName ref="#vladimirPutin">President Vladimir
+            Putin</persName>. The latter supplemented the Criminal Code of the Russian Federation
+            with articles 207.3, 280.3 and 284.2. The dissemination of "unreliable information"
+            about the armed forces and its operation could be punished with up to fifteen years
+            imprisonment. These laws are enforced by
+            <orgName ref="#roskomnadzor">Roskomnadzor</orgName>, Russia's federal media
+            regulator.</p>
+        </div>
+
+        <div type="mediaImpact">
+          <head>Impact on Independent Media</head>
+
+          <p>Many Russian media outlets were forced to stop covering the Russian invasion of Ukraine
+            because of this legislation. Independent newspaper
+            <orgName ref="#novayaGazeta">Novaya Gazeta</orgName> was forced to suspend publication
+            in March 2022 after receiving warnings from
+            <orgName ref="#roskomnadzor">Roskomnadzor</orgName> under the new censorship laws. Its
+            media licence was subsequently revoked in September 2022. According to news website
+            Agentstvo, over 150 journalists had left Russia by 7 March 2022, within three days of
+            the laws coming into effect.</p>
+        </div>
+
+        <div type="prosecutions">
+          <head>Notable Prosecutions</head>
+
+          <div type="prosecution">
+            <head>Alexei Gorinov</head>
+            <p>The first person imprisoned under criminal code article 207.3 is
+              <persName ref="#alexeiGorinov">Alexei Gorinov</persName>, a then-60-year-old deputy
+              at Moscow's Krasnoselsky district council, engineer, lawyer and human rights defender.
+              At a council meeting on 15 March 2022 he said: "How can we talk about a children's
+              drawing competition, when children are dying every day?!" Gorinov was convicted on
+              8 July 2022 to seven years imprisonment. On 29 November 2024, Gorinov was sentenced
+              to three additional years in prison, on charges of "advocating terrorism".</p>
+          </div>
+
+          <div type="prosecution">
+            <head>Marina Ovsyannikova</head>
+            <p>On 4 October 2023, Russian journalist
+              <persName ref="#marinaOvsyannikova">Marina Ovsyannikova</persName>, former Channel
+              One editor, was sentenced in absentia to 8.5 years in prison for "spreading false
+              information" about the Russian Army. Ovsyannikova had interrupted a live state
+              television broadcast on 14 March 2022 holding an anti-war sign, becoming an
+              international symbol of dissent. She subsequently fled to Paris, France.</p>
+          </div>
+
+          <div type="prosecution">
+            <head>Vladimir Kara-Murza</head>
+            <p>On 22 April 2022, Russian opposition politician
+              <persName ref="#vladimirKaraMurza">Vladimir Kara-Murza</persName> was charged by a
+              Russian court for spreading of false information about the Russian military, due to
+              his 15 March speech to the Arizona House of Representatives, in which he denounced
+              the war in Ukraine. Kara-Murza was sentenced to 25 years in prison in April 2023,
+              the harshest sentence handed to a political opponent since the start of the war.
+              He was released in August 2024 as part of a prisoner exchange.</p>
+          </div>
+        </div>
+
+        <div type="escalation">
+          <head>Bucha Massacre and Escalation</head>
+
+          <p>The laws were applied extensively following the revelation of the
+            <rs type="event" ref="#buchaMassacre">Bucha massacre</rs> in April 2022. Criminal
+            cases were initiated against bloggers and journalists who reported on the deaths of
+            civilian population in Bucha, Ukraine. Russian journalist Ilya Krasilshchik was
+            charged by a Russian court for spreading fake news about the massacre in the Ukrainian
+            city of Bucha.</p>
+        </div>
+
+        <div type="internationalResponse">
+          <head>International Response</head>
+
+          <div type="response">
+            <head>Amnesty International</head>
+            <p>On 14 March 2022,
+              <orgName ref="#amnestyInternational">Amnesty International</orgName> published a
+              statement — <rs type="document" xml:id="endCensorshipReport"
+                corresp="EUR 46/5345/2022">"End Censorship on Voices Against the War"</rs> —
+              criticizing Russian laws promulgated on 4 March 2022. Amnesty International strongly
+              condemned the escalating attack against civil society organizations and independent
+              media unleashed by the Russian authorities since the start of Russia's invasion of
+              Ukraine, and urged the Russian authorities to abide by their international human
+              rights obligations to respect the rights to freedom of expression, association and
+              peaceful assembly.</p>
+          </div>
+
+          <div type="response">
+            <head>European Court of Human Rights</head>
+            <p>On 11 February 2025, the
+              <orgName ref="#europeanCourtOfHumanRights">European Court of Human Rights</orgName>
+              issued a
+              <rs type="document" xml:id="echrRuling" corresp="11884/22 and 161 others">ruling</rs>
+              finding that Russia's 2022 wartime censorship laws were illegal and violated the
+              right to freedom of expression.</p>
+          </div>
+
+          <div type="response">
+            <head>OVD-Info Monitoring</head>
+            <p>According to human rights NGO
+              <orgName ref="#ovdInfo">OVD-Info</orgName>, as of August 2024, Russian authorities
+              opened more than 10,000 cases against people accused of "discrediting" the Russian
+              armed forces. OVD-Info has monitored political persecution under the laws and
+              provided legal assistance to those charged throughout the period.</p>
+          </div>
+        </div>
+
+      </div>
+    </body>
+  </text>
+
+</TEI>

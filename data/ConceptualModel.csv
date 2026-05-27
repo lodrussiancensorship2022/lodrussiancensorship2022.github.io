@@ -1,0 +1,66 @@
+Subject,Predicate,Object,Standard
+crm:E21_Person,crm:P67_refers_to,bibo:LegalDocument,CIDOC-CRM / BIBO
+crm:E21_Person,schema:jobTitle,crm:E55_Type,Schema.org / CIDOC-CRM
+crm:E21_Person,dcterms:description,crm:E55_Type,Dublin Core / CIDOC-CRM
+crm:E21_Person,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E21_Person,rdf:type,crm:E21_Person,CIDOC-CRM
+crm:E5_Event,crm:P16_used_specific_object,crm:E74_Group,CIDOC-CRM
+crm:E5_Event,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E5_Event,crm:P7_took_place_at,crm:E53_Place,CIDOC-CRM
+crm:E5_Event,crm:P14_carried_out_by,crm:E74_Group,CIDOC-CRM
+crm:E5_Event,rdf:type,crm:E5_Event,CIDOC-CRM
+bibo:LegalDocument,dcterms:identifier,crm:E42_Identifier,BIBO / Dublin Core
+bibo:LegalDocument,rdf:type,bibo:LegalDocument,BIBO
+bibo:LegalDocument,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+bibo:LegalDocument,dcterms:publisher,crm:E74_Group,Dublin Core
+bibo:Report,dcterms:identifier,crm:E42_Identifier,BIBO / Dublin Core
+bibo:Report,rdf:type,bibo:Report,BIBO
+bibo:Report,dcterms:publisher,crm:E74_Group,Dublin Core
+bibo:Report,crm:P129_is_about,crm:E55_Type,CIDOC-CRM
+bibo:Report,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+aio:Law,crm:P14_carried_out_by,crm:E74_Group,Agreements Ontology / CIDOC-CRM
+aio:Law,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+aio:Law,crm:P14_carried_out_by,crm:E21_Person,Agreements Ontology / CIDOC-CRM
+aio:Law,dcterms:description,crm:E55_Type,Dublin Core
+aio:Law,crm:P14_carried_out_by,crm:E74_Group,Agreements Ontology / CIDOC-CRM
+aio:Law,crm:P67_refers_to,bibo:Report,CIDOC-CRM / BIBO
+aio:Law,crm:P67_refers_to,bibo:LegalDocument,CIDOC-CRM / BIBO
+aio:Law,rdf:type,aio:Law,Agreements Ontology
+crm:E21_Person,crm:P26_moved_to,crm:E53_Place,CIDOC-CRM
+crm:E21_Person,schema:jobTitle,crm:E55_Type,Schema.org / CIDOC-CRM
+crm:E21_Person,schema:worksFor,crm:E74_Group,Schema.org
+crm:E21_Person,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E21_Person,dcterms:description,crm:E55_Type,Dublin Core / CIDOC-CRM
+crm:E21_Person,rdf:type,crm:E21_Person,CIDOC-CRM
+crm:E74_Group,schema:founder,crm:E21_Person,Schema.org
+crm:E74_Group,rdf:type,crm:E74_Group,CIDOC-CRM
+crm:E74_Group,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E74_Group,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E74_Group,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E74_Group,dcterms:description,crm:E55_Type,Dublin Core / CIDOC-CRM
+crm:E74_Group,schema:parentOrganization,crm:E74_Group,Schema.org
+crm:E74_Group,rdf:type,crm:E74_Group,CIDOC-CRM
+crm:E74_Group,crm:P7_took_place_at,crm:E53_Place,CIDOC-CRM
+crm:E74_Group,crm:P16_used_specific_object,crm:E74_Group,CIDOC-CRM
+crm:E5_Event,crm:P17_was_motivated_by,crm:E5_Event,CIDOC-CRM
+crm:E5_Event,crm:P16_used_specific_object,aio:Law,CIDOC-CRM / Agreements Ontology
+crm:E5_Event,crm:P16_used_specific_object,crm:E74_Group,CIDOC-CRM
+crm:E5_Event,crm:P11_had_participant,crm:E21_Person,CIDOC-CRM
+crm:E5_Event,crm:P11_had_participant,crm:E21_Person,CIDOC-CRM
+crm:E5_Event,crm:P11_had_participant,crm:E21_Person,CIDOC-CRM
+crm:E5_Event,crm:P67_refers_to,bibo:Report,CIDOC-CRM / BIBO
+crm:E5_Event,crm:P17_was_motivated_by,crm:E5_Event,CIDOC-CRM
+crm:E5_Event,crm:P14_carried_out_by,crm:E74_Group,CIDOC-CRM
+crm:E5_Event,crm:P14_carried_out_by,crm:E74_Group,CIDOC-CRM
+crm:E5_Event,crm:P67_refers_to,bibo:LegalDocument,CIDOC-CRM / BIBO
+crm:E5_Event,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E5_Event,rdf:type,crm:E5_Event,CIDOC-CRM
+crm:E5_Event,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E5_Event,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E5_Event,rdf:type,crm:E5_Event,CIDOC-CRM
+crm:E21_Person,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E21_Person,schema:jobTitle,crm:E55_Type,Schema.org / CIDOC-CRM
+crm:E21_Person,dcterms:description,crm:E55_Type,Dublin Core / CIDOC-CRM
+crm:E21_Person,crm:P4_has_time-span,crm:E52_Time-Span,CIDOC-CRM
+crm:E21_Person,schema:locationCreated,crm:E53_Place,Schema.org
+crm:E21_Person,rdf:type,crm:E21_Person,CIDOC-CRM

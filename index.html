@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Russian Censorship Policy 2022 — LOD Project</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">Study of the domain</a></li>
+        <li class="nav-dropdown">
+          <a href="#ko" class="nav-dropdown-toggle">Knowledge Organization <span class="nav-chevron">&#8964;</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="#ko">Conceptual Map &amp; E/R Model</a></li>
+            
+            <li><a href="#metadata">Metadata Analysis</a></li>
+            <li><a href="#alignment">Metadata Alignment</a></li>
+            <li><a href="#theoretical">Theoretical Model &amp; Enhanced E/R Model</a></li>
+            
+            <li><a href="#conceptual-model">Conceptual Model</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a href="#items" class="nav-dropdown-toggle">Knowledge Representation <span class="nav-chevron">&#8964;</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="#items-description">Items Description</a></li>
+            <li><a href="#uri-production">URI Production</a></li>
+            <li><a href="#tei-production">TEI → RDF Transformation Pipeline</a></li>
+            <li><a href="#rdf-production">RDF Serialization</a></li>
+            <li><a href="#rdf-visualization">RDF Visualization</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SECTION 1 — HERO -->
+  <section id="hero" class="section section--hero">
+    <div class="noise-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="tag-line"></span>
+        <span>LINKED OPEN DATA PROJECT</span>
+        <span class="tag-line"></span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">RUSSIAN</span>
+        <span class="title-line">CENSORSHIP</span>
+        <span class="title-line title-policy-row"><span class="accent">POLICY</span><span class="year-inline">2022</span></span>
+      </h1>
+      <a href="#about" class="hero-cta">
+        <span>Explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-deco">
+      <div class="deco-circle deco-circle--1"></div>
+      <div class="deco-circle deco-circle--2"></div>
+      <div class="deco-lines">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — ABOUT -->
+  <section id="about" class="section section--about">
+    <div class="about-inner">
+      <div class="about-label">
+        <span class="mono">§ 01</span>
+        <span>ABOUT THE PROJECT</span>
+      </div>
+      <div class="about-body">
+        <div class="about-text-col" style="max-width:72ch">
+          <h2 class="ko-title" style="margin-bottom:1.8rem">About the Project</h2>
+          <p class="about-p">On 4 March 2022, just eight days after the full-scale Russian invasion of Ukraine, the Russian State Duma adopted <span class="about-entity">Federal Laws No. 31-FZ and No. 32-FZ</span> in a single day — one of the fastest legislative procedures in modern Russian history. The laws introduced criminal liability for the dissemination of "false information" about the <span class="about-entity">Russian Armed Forces</span> and for "discrediting" them, with penalties of up to 15 years imprisonment. In practice, calling the war a "war" instead of a "special military operation" became a criminal offence.</p>
+          <p class="about-p">The immediate consequences were dramatic. Independent media outlets — <span class="about-entity">Novaya Gazeta</span>, TV Rain, Meduza — suspended operations or relocated abroad. Over 150 journalists left Russia within days of the law being signed. <span class="about-entity">Roskomnadzor</span>, the federal media regulator, began blocking websites and issuing warnings at an unprecedented scale. <span class="about-entity">OVD-Info</span>, the human rights monitoring project, documented over 10,000 prosecutions under the new laws in the following years.</p>
+          <p class="about-p">The human cost was equally severe. <span class="about-entity">Alexei Gorinov</span>, a Moscow municipal deputy, became the first person imprisoned under Article 207.3 — sentenced to seven years for calling the invasion a "war" at a council meeting. <span class="about-entity">Vladimir Kara-Murza</span> was sentenced to 25 years, the harshest sentence handed to a political opponent since the start of the war. <span class="about-entity">Marina Ovsyannikova</span> interrupted a live state television broadcast with an anti-war sign and was subsequently sentenced to 8.5 years in absentia after fleeing to France.</p>
+          <p class="about-p">The international response came gradually. Amnesty International condemned the laws within ten days of their adoption — publishing the report <span class="about-entity">End Censorship on Voices Against the War</span>. The <span class="about-entity">Bucha massacre</span>, which emerged in April 2022, triggered a new wave of prosecutions against those who reported on it. Only in February 2025 did the <span class="about-entity">European Court of Human Rights</span> issue a formal ruling — the <span class="about-entity">ECHR ruling</span> — finding the laws in violation of the European Convention on Human Rights.</p>
+          <p class="about-p">This project documents the legal, political, and human consequences of the <span class="about-entity">Russian Censorship Policy 2022</span> and the <span class="about-entity">Russo-Ukrainian war</span> through a Linked Open Data approach, connecting eleven key entities to international authority files and formal ontologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 3 — ITEMS -->
+  <section id="items" class="section section--items">
+    <div class="items-inner">
+      <div class="items-header">
+        <div class="about-label">
+          <span class="mono">§ 02</span>
+          <span>SELECTED ITEMS</span>
+        </div>
+        <h2 class="ko-title" style="margin-bottom:1rem">Selected Items</h2>
+        <p class="items-intro" style="margin-bottom:2.5rem">The following are the <strong>11 selected items</strong> chosen for the domain of study on Russian censorship policy enacted in 2022.</p>
+      </div>
+
+      <div class="items-grid">
+        <a href="https://en.wikipedia.org/wiki/Russo-Ukrainian_war" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/war.png" alt="Russo-Ukrainian war" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">01</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Russo-Ukrainian war</h3>
+            <p class="item-card-desc">The armed conflict between Russia and Ukraine that began in 2014 and escalated into a full-scale invasion on 24 February 2022, directly triggering the adoption of Russia's war censorship laws.</p>
+          </div>
+        </a>
+        <a href="http://publication.pravo.gov.ru/document/0001202203040007" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/law.png" alt="Federal Law No. 32-FZ of 4 March 2022" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">02</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Federal Law No. 32-FZ of 4 March 2022</h3>
+            <p class="item-card-desc">Federal law introducing criminal liability for disseminating "false information" about the Russian Armed Forces, with penalties of up to 15 years imprisonment; the primary legal instrument of Russia's war censorship regime.</p>
+          </div>
+        </a>
+        <a href="https://novayagazeta.ru/" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/novaya.png" alt="Novaya Gazeta" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">03</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Novaya Gazeta</h3>
+            <p class="item-card-desc">Independent Russian newspaper forced to suspend publication in March 2022 after receiving warnings from Roskomnadzor under the new censorship laws; its media licence was revoked in September 2022.</p>
+          </div>
+        </a>
+        <a href="https://en.wikipedia.org/wiki/Marina_Ovsyannikova" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/marina.png" alt="Marina Ovsyannikova" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">04</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Marina Ovsyannikova</h3>
+            <p class="item-card-desc">Russian journalist and former Channel One editor who interrupted a live state television broadcast on 14 March 2022 holding an anti-war sign, becoming an international symbol of dissent; subsequently sentenced to 8.5 years in absentia in October 2023.</p>
+          </div>
+        </a>
+        <a href="https://www.amnesty.org/en/documents/eur46/5345/2022/en/" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/amnesty.png" alt="Amnesty International Report" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">05</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Amnesty International Report</h3>
+            <p class="item-card-desc">Official statement by Amnesty International condemning the Russian authorities' crackdown on independent media and anti-war protesters, urging repeal of the laws adopted on 4 March 2022.</p>
+          </div>
+        </a>
+        <a href="https://en.wikipedia.org/wiki/Bucha_massacre" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/bucha.png" alt="Bucha massacre" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">06</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Bucha massacre</h3>
+            <p class="item-card-desc">The mass killing of Ukrainian civilians by Russian forces during the occupation of Bucha, evidence of which emerged on 1 April 2022 — a trigger for criminal cases under the fakes law against those who reported on the atrocities.</p>
+          </div>
+        </a>
+        <a href="https://ovd.info/en" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/ovd.png" alt="OVD-Info" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">07</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">OVD-Info</h3>
+            <p class="item-card-desc">Independent Russian human rights media project monitoring political persecution, which documented over 10,000 prosecutions under the 2022 war censorship laws and provided legal assistance to those charged.</p>
+          </div>
+        </a>
+        <a href="https://rkn.gov.ru/" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/rkn.png" alt="Roskomnadzor" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">08</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Roskomnadzor</h3>
+            <p class="item-card-desc">Russia's federal media regulator responsible for enforcing the 2022 censorship laws, including blocking news websites, issuing warnings to media outlets, and overseeing the mass exodus of independent Russian media.</p>
+          </div>
+        </a>
+        <a href="https://www.echr.coe.int/w/judgment-concerning-the-russian-federation-19" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/echr.png" alt="ECHR ruling" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">09</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">ECHR ruling</h3>
+            <p class="item-card-desc">Judgment by the European Court of Human Rights finding that Russia's war censorship laws violated the European Convention on Human Rights, marking the first international legal ruling against the legislation.</p>
+          </div>
+        </a>
+        <a href="https://en.wikipedia.org/wiki/Alexei_Gorinov" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/gorinov.png" alt="Alexei Gorinov" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">10</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Alexei Gorinov</h3>
+            <p class="item-card-desc">Moscow municipal deputy who became the first person sentenced to imprisonment under Article 207.3 of the Criminal Code, receiving a seven-year prison term in July 2022 for calling Russia's invasion of Ukraine a "war" at a council meeting.</p>
+          </div>
+        </a>
+        <a href="https://en.wikipedia.org/wiki/Vladimir_Kara-Murza" target="_blank" class="item-card">
+          <div class="item-card-img">
+            <img src="img/kara.png" alt="Vladimir Kara-Murza" loading="lazy" onerror="this.parentElement.style.background='var(--bg-3)'"/>
+            <span class="item-card-num mono">11</span>
+          </div>
+          <div class="item-card-body">
+            <h3 class="item-card-name">Vladimir Kara-Murza</h3>
+            <p class="item-card-desc">Russian-British opposition politician sentenced to 25 years in prison in April 2023 for his speech to the Arizona House of Representatives criticising the invasion — the harshest sentence handed to a political opponent since the start of the war.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 4 — KNOWLEDGE ORGANIZATION -->
+  <section id="ko" class="section section--ko">
+    <div class="ko-inner">
+      <div class="about-label">
+        <span class="mono">§ 03</span>
+        <span>KNOWLEDGE ORGANIZATION</span>
+      </div>
+
+      <div class="ko-sub-header">
+        <h2 class="ko-title">Conceptual Map &amp; E/R Model</h2>
+        <p class="ko-desc">The main topic of this project is the <strong>Russian Censorship Policy 2022</strong>. The eleven items selected are all relevant in order to document the legal, political, and human consequences of the war censorship laws enacted on 4 March 2022. They include the armed conflict that triggered the legislation, the law itself, the government body responsible for its enforcement, independent media organisations silenced by it, individuals prosecuted under it, a human rights report condemning it, a key event that escalated its application, a monitoring organisation that documented its effects, and the international legal ruling that found it in violation of human rights law.</p>
+      </div>
+
+      <!-- Graph switcher 1 -->
+      <div class="graph-switcher" id="switcher-1">
+        <div class="graph-tabs">
+          <button class="graph-tab active" data-target="graph-1a">Conceptual Map</button>
+          <button class="graph-tab" data-target="graph-1b">E/R Model</button>
+        </div>
+        <div class="graph-panel active" id="graph-1a">
+          <p class="ko-desc" style="margin-bottom:1.5rem">The <strong>Conceptual Map</strong> represents the extracted data in natural language — the relationships as found across the items and their attributes. The central node represents the main topic, coloured nodes represent the eleven items, and plain nodes represent their attributes and values.</p>
+          <div class="mindmap-wrap">
+            <iframe src="graphs/knowledge_graph.html" title="Conceptual Map" class="graph-iframe"></iframe>
+          </div>
+        </div>
+        <div class="graph-panel" id="graph-1b" id="er">
+          <p class="ko-desc" style="margin-bottom:1.5rem">The <strong>E/R Model</strong> translates the Conceptual Map into a more formal and abstract representation. Each concrete instance is replaced with its general class — Person, Organization, Document, Event, Policy, Place, Date, Concept, Literal — and the relationships between them are expressed as abstract predicates. This abstraction allows the domain to be represented from a more general perspective, independent of the specific items chosen.</p>
+          <div class="mindmap-wrap">
+            <iframe src="graphs/er_graph.html" title="E/R Model" class="graph-iframe"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 5 — METADATA ANALYSIS -->
+  <section id="metadata" class="section section--metadata">
+    <div class="items-inner">
+      <div class="about-label">
+        <span class="mono">§ 04</span>
+        <span>METADATA ANALYSIS</span>
+      </div>
+
+      <div class="ko-sub-header">
+        <h2 class="ko-title">Metadata Analysis</h2>
+        <p class="ko-desc">The metadata standard for each item was selected based on the type of entity, the nature of its relationships within the domain, and the authority files in which it is registered. Items marked with an asterisk (*) indicate a standard selected by the project team, as the provider does not officially declare a metadata standard.</p>
+      </div>
+
+      <div class="meta-table-wrap">
+        <table class="meta-table">
+          <thead>
+            <tr>
+              <th class="mono">Item</th>
+              <th class="mono">Type</th>
+              <th class="mono">Provider</th>
+              <th class="mono">Standard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="meta-item">Russo-Ukrainian war</td>
+              <td><span class="meta-badge meta-badge--event">Event</span></td>
+              <td class="meta-source">Library of Congress</td>
+              <td><span class="meta-standard meta-standard--marc">MARC21</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">Federal Law No. 32-FZ of 4 March 2022</td>
+              <td><span class="meta-badge meta-badge--doc">Legal document</span></td>
+              <td class="meta-source">publication.pravo.gov.ru</td>
+              <td><span class="meta-standard">Dublin Core*</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">Novaya Gazeta</td>
+              <td><span class="meta-badge meta-badge--org">Newspaper</span></td>
+              <td class="meta-source">VIAF / Library of Congress</td>
+              <td><span class="meta-standard meta-standard--marc">MARC21</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">Marina Ovsyannikova</td>
+              <td><span class="meta-badge meta-badge--person">Person</span></td>
+              <td class="meta-source">Wikipedia / VIAF / ISNI</td>
+              <td><span class="meta-standard meta-standard--cidoc">CIDOC-CRM*</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">End Censorship on Voices Against the War</td>
+              <td><span class="meta-badge meta-badge--doc">Report</span></td>
+              <td class="meta-source">Amnesty International</td>
+              <td><span class="meta-standard">Dublin Core*</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">Bucha massacre</td>
+              <td><span class="meta-badge meta-badge--event">Event</span></td>
+              <td class="meta-source">Wikipedia</td>
+              <td><span class="meta-standard meta-standard--schema">Schema.org*</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">OVD-Info</td>
+              <td><span class="meta-badge meta-badge--org">Organization</span></td>
+              <td class="meta-source">VIAF / ovdinfo.org</td>
+              <td><span class="meta-standard meta-standard--cidoc">CIDOC-CRM*</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">Roskomnadzor</td>
+              <td><span class="meta-badge meta-badge--org">Organization</span></td>
+              <td class="meta-source">VIAF / rkn.gov.ru</td>
+              <td><span class="meta-standard meta-standard--cidoc">CIDOC-CRM*</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">ECHR ruling</td>
+              <td><span class="meta-badge meta-badge--doc">Legal document</span></td>
+              <td class="meta-source">European Court of Human Rights</td>
+              <td><span class="meta-standard">Dublin Core*</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">Alexei Gorinov</td>
+              <td><span class="meta-badge meta-badge--person">Person</span></td>
+              <td class="meta-source">Wikipedia / VIAF</td>
+              <td><span class="meta-standard meta-standard--cidoc">CIDOC-CRM*</span></td>
+            </tr>
+<tr>
+              <td class="meta-item">Vladimir Kara-Murza</td>
+              <td><span class="meta-badge meta-badge--person">Person</span></td>
+              <td class="meta-source">VIAF / Library of Congress / ISNI</td>
+              <td><span class="meta-standard meta-standard--marc">MARC21</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="meta-rationale">
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label meta-standard--marc">MARC21</span>
+          <p>Assigned to items with a confirmed Library of Congress authority record: Russo-Ukrainian war (<code>sh2023001220</code>), Novaya Gazeta (<code>no2021153865</code>), and Vladimir Kara-Murza (<code>n2011073476</code>). The Library of Congress officially uses MARC21 for all its authority and bibliographic records. <a href="https://www.loc.gov/marc/bibliographic/" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label meta-standard--dc">Dublin Core*</span>
+          <p>Selected for documents — Federal Law No. 32-FZ, the Amnesty International report, and the ECHR ruling. These are bibliographic objects defined primarily by title, date, publisher, and identifier. Dublin Core provides a universal minimum for bibliographic description through properties such as <code>dcterms:title</code>, <code>dcterms:date</code>, <code>dcterms:publisher</code>, and <code>dcterms:identifier</code>. None of the providers declare an official metadata standard. <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label meta-standard--cidoc">CIDOC-CRM*</span>
+          <p>Selected for persons and organisations — Marina Ovsyannikova, Alexei Gorinov, OVD-Info, and Roskomnadzor. These entities are defined not only by their attributes but by complex historical relationships: prosecutions, enforcements, designations, and institutional hierarchies. CIDOC-CRM was specifically designed to model such relationships, providing properties such as <code>crm:P14_carried_out_by</code>, <code>crm:P7_took_place_at</code>, and <code>crm:P26_moved_to</code>. Where CIDOC-CRM does not provide a suitable equivalent, Schema.org terms are used in the Items Description. <a href="https://www.cidoc-crm.org/html/cidoc_crm_v7.1.3.html" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label meta-standard--schema">Schema.org*</span>
+          <p>Selected for the Bucha massacre, sourced from Wikipedia. Schema.org provides dedicated classes for events (<code>schema:Event</code>) with properties for location, date, and participants. Schema.org terms are also used across the project to complement CIDOC-CRM for attribute-level descriptions of persons and organisations, such as <code>schema:jobTitle</code>, <code>schema:worksFor</code>, and <code>schema:foundingDate</code>. <a href="https://schema.org/Event" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+      <p class="ko-desc" style="margin-top:2.5rem;margin-bottom:1.2rem">The following standards are not listed in the table above as they were not used for primary metadata description. They are applied in the Items Description and RDF serialisation for greater specificity in certain entity types.</p>
+      <div class="meta-rationale">
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label">BIBO*</span>
+          <p>Used in the Items Description and RDF serialisation for bibliographic and legal documents. BIBO (Bibliographic Ontology) provides precise classes such as <code>bibo:Report</code> for the Amnesty International report and the ECHR ruling, and <code>bibo:LegalDocument</code> for Article 207.3, offering greater specificity than the general Dublin Core document description. <a href="http://bibliontology.com/" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label">Agreements Ontology*</span>
+          <p>Used in the Items Description and RDF serialisation for Federal Law No. 32-FZ. The Agreements Ontology is specifically designed to model social contracts including laws, licences, and standards. The class <code>aio:Law</code> captures the nature of the federal law as a binding legal instrument more precisely than a generic document class. <a href="https://github.com/nicholascar/agr-ont" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 6 — METADATA ALIGNMENT -->
+  <section id="alignment" class="section section--metadata">
+    <div class="items-inner">
+      <div class="about-label">
+        <span class="mono">§ 05</span>
+        <span>METADATA ALIGNMENT</span>
+      </div>
+
+      <div class="ko-sub-header">
+        <h2 class="ko-title">Metadata Alignment</h2>
+        <p class="ko-desc">The alignment table maps each property identified in the domain to its equivalent term across all standards used in the RDF serialisation, organised by WHO, WHAT, WHEN, and WHERE. Dublin Core provides a universal baseline and MARC21 covers library catalogue records. Schema.org captures attribute-level properties of persons and organisations — such as <code>schema:jobTitle</code> and <code>schema:foundingDate</code> — while CIDOC-CRM expresses complex historical relationships with sufficient precision, such as causation (<code>crm:P17_was_motivated_by</code>), movement (<code>crm:P26_moved_to</code>), and enforcement (<code>crm:P14_carried_out_by</code>). BIBO provides dedicated classes for bibliographic and legal documents — <code>bibo:Report</code> and <code>bibo:LegalDocument</code> — where Dublin Core's generic description is insufficient. Agreements Ontology covers the federal law through <code>aio:Law</code>, modelling it as a binding social contract rather than a generic document. Where no suitable term exists in a given standard, N/A is indicated.</p>
+      </div>
+
+      <div class="align-filters">
+        <button class="align-btn active" data-filter="all">All</button>
+        <button class="align-btn" data-filter="who">Who</button>
+        <button class="align-btn" data-filter="what">What</button>
+        <button class="align-btn" data-filter="when">When</button>
+        <button class="align-btn" data-filter="where">Where</button>
+      </div>
+
+      <div class="meta-table-wrap" style="margin-top:1rem">
+        <table class="meta-table align-table">
+          <thead>
+            <tr>
+              <th class="mono">Property</th>
+              <th class="mono">Dublin Core</th>
+              <th class="mono">MARC21</th>
+              <th class="mono">Schema.org</th>
+              <th class="mono">CIDOC-CRM</th>
+              <th class="mono">BIBO</th>
+              <th class="mono">Agreements Ontology</th>
+            </tr>
+          </thead>
+          <tbody>
+<tr class="align-group-row" data-group="who"><td colspan="7"><span class="align-group-label">WHO</span></td></tr>
+<tr data-cat="who"><td class="meta-item">Creator / Signed by</td><td class="align-dc mono">dcterms:creator</td><td class="align-marc">100 — Main Entry · Personal Name</td><td class="align-schema mono">schema:author</td><td class="align-cidoc mono">crm:P14_carried_out_by</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Publisher / Issued by</td><td class="align-dc mono">dcterms:publisher</td><td class="align-marc">710 — Added Entry · Corporate Name</td><td class="align-schema mono">schema:publisher</td><td class="align-cidoc mono align-na">N/A</td><td class="align-bibo mono">bibo:authorList</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Enforced by</td><td class="align-dc mono">dcterms:contributor</td><td class="align-marc">710 — Added Entry · Corporate Name</td><td class="align-schema mono">schema:contributor</td><td class="align-cidoc mono">crm:P14_carried_out_by</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Perpetrator</td><td class="align-dc mono">dcterms:contributor</td><td class="align-marc">511 — Participant or Performer</td><td class="align-schema mono">schema:participant</td><td class="align-cidoc mono">crm:P14_carried_out_by</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Occupation</td><td class="align-dc mono">dcterms:description</td><td class="align-marc">374 — Occupation</td><td class="align-schema mono">schema:jobTitle</td><td class="align-cidoc mono align-na">N/A</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Employer</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">373 — Associated Group</td><td class="align-schema mono">schema:worksFor</td><td class="align-cidoc mono align-na">N/A</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Founded by</td><td class="align-dc mono">dcterms:creator</td><td class="align-marc">100 — Main Entry · Personal Name</td><td class="align-schema mono">schema:founder</td><td class="align-cidoc mono">crm:P14_carried_out_by</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Parent organization</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">710 — Added Entry · Corporate Name</td><td class="align-schema mono">schema:parentOrganization</td><td class="align-cidoc mono align-na">N/A</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Investigated by</td><td class="align-dc mono">dcterms:contributor</td><td class="align-marc">511 — Participant or Performer</td><td class="align-schema mono">schema:contributor</td><td class="align-cidoc mono">crm:P16_used_specific_object</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Monitored by</td><td class="align-dc mono">dcterms:contributor</td><td class="align-marc">710 — Added Entry · Corporate Name</td><td class="align-schema mono">schema:contributor</td><td class="align-cidoc mono">crm:P14_carried_out_by</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Adopted by</td><td class="align-dc mono">dcterms:contributor</td><td class="align-marc">710 — Added Entry · Corporate Name</td><td class="align-schema mono">schema:contributor</td><td class="align-cidoc mono">crm:P14_carried_out_by</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="who"><td class="meta-item">Prosecuted</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">511 — Participant or Performer</td><td class="align-schema mono">schema:participant</td><td class="align-cidoc mono">crm:P11_had_participant</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr class="align-group-row" data-group="what"><td colspan="7"><span class="align-group-label">WHAT</span></td></tr>
+<tr data-cat="what"><td class="meta-item">Title / Name</td><td class="align-dc mono">dcterms:title</td><td class="align-marc">240 — Uniform Title</td><td class="align-schema mono">schema:name</td><td class="align-cidoc mono">crm:E35_Title</td><td class="align-bibo mono">dcterms:title</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Type</td><td class="align-dc mono">dcterms:type</td><td class="align-marc">336 — Content Type</td><td class="align-schema mono">schema:additionalType</td><td class="align-cidoc mono">rdf:type</td><td class="align-bibo mono">rdf:type</td><td class="align-aio mono">aio:Agreement</td></tr>
+<tr data-cat="what"><td class="meta-item">Subject</td><td class="align-dc mono">dcterms:subject</td><td class="align-marc">072 — Subject Category Code</td><td class="align-schema mono">schema:about</td><td class="align-cidoc mono">crm:P129_is_about</td><td class="align-bibo mono">dcterms:subject</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Identifier</td><td class="align-dc mono">dcterms:identifier</td><td class="align-marc">003 — Control Number Identifier</td><td class="align-schema mono">schema:identifier</td><td class="align-cidoc mono">crm:E42_Identifier</td><td class="align-bibo mono">bibo:identifier</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Maximum penalty</td><td class="align-dc mono">dcterms:description</td><td class="align-marc">500 — General Note</td><td class="align-schema mono">schema:description</td><td class="align-cidoc mono align-na">N/A</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Sentenced</td><td class="align-dc mono">dcterms:description</td><td class="align-marc">500 — General Note</td><td class="align-schema mono">schema:description</td><td class="align-cidoc mono align-na">N/A</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Documented cases</td><td class="align-dc mono">dcterms:description</td><td class="align-marc">500 — General Note</td><td class="align-schema mono">schema:description</td><td class="align-cidoc mono align-na">N/A</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Relation between entities</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">787 — Other Relationship Entry</td><td class="align-schema mono">schema:isRelatedTo</td><td class="align-cidoc mono">crm:P67_refers_to</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">First conviction under</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">787 — Other Relationship Entry</td><td class="align-schema mono">schema:isRelatedTo</td><td class="align-cidoc mono">crm:P67_refers_to</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Condemned by</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">787 — Other Relationship Entry</td><td class="align-schema mono">schema:isRelatedTo</td><td class="align-cidoc mono">crm:P67_refers_to</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Ruled against by</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">787 — Other Relationship Entry</td><td class="align-schema mono">schema:isRelatedTo</td><td class="align-cidoc mono">crm:P67_refers_to</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Triggered by</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">787 — Other Relationship Entry</td><td class="align-schema mono">schema:isRelatedTo</td><td class="align-cidoc mono">crm:P17_was_motivated_by</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Silenced / Blocked</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">787 — Other Relationship Entry</td><td class="align-schema mono">schema:isRelatedTo</td><td class="align-cidoc mono">crm:P16_used_specific_object</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Implemented through</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">787 — Other Relationship Entry</td><td class="align-schema mono">schema:isRelatedTo</td><td class="align-cidoc mono">crm:P16_used_specific_object</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Escalated after</td><td class="align-dc mono">dcterms:relation</td><td class="align-marc">787 — Other Relationship Entry</td><td class="align-schema mono">schema:isRelatedTo</td><td class="align-cidoc mono">crm:P17_was_motivated_by</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Has type (Law)</td><td class="align-dc mono">dcterms:type</td><td class="align-marc">336 — Content Type</td><td class="align-schema mono">schema:additionalType</td><td class="align-cidoc mono">rdf:type</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono">aio:Law</td></tr>
+<tr data-cat="what"><td class="meta-item">Has type (Report)</td><td class="align-dc mono">dcterms:type</td><td class="align-marc">336 — Content Type</td><td class="align-schema mono">schema:additionalType</td><td class="align-cidoc mono">rdf:type</td><td class="align-bibo mono">bibo:Report</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="what"><td class="meta-item">Has type (Legal document)</td><td class="align-dc mono">dcterms:type</td><td class="align-marc">336 — Content Type</td><td class="align-schema mono">schema:additionalType</td><td class="align-cidoc mono">rdf:type</td><td class="align-bibo mono">bibo:LegalDocument</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr class="align-group-row" data-group="when"><td colspan="7"><span class="align-group-label">WHEN</span></td></tr>
+<tr data-cat="when"><td class="meta-item">Date adopted</td><td class="align-dc mono">dcterms:created</td><td class="align-marc">388 — Time Period of Creation</td><td class="align-schema mono">schema:dateCreated</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Date of event</td><td class="align-dc mono">dcterms:date</td><td class="align-marc">518 — Date/Time of an Event</td><td class="align-schema mono">schema:startDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Sentence date</td><td class="align-dc mono">dcterms:date</td><td class="align-marc">518 — Date/Time of an Event</td><td class="align-schema mono">schema:endDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Protest date</td><td class="align-dc mono">dcterms:date</td><td class="align-marc">518 — Date/Time of an Event</td><td class="align-schema mono">schema:startDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Start date</td><td class="align-dc mono">dcterms:created</td><td class="align-marc">362 — Dates of Publication</td><td class="align-schema mono">schema:startDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Conflict origin date</td><td class="align-dc mono">dcterms:created</td><td class="align-marc">362 — Dates of Publication</td><td class="align-schema mono">schema:startDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Suspended / Revoked</td><td class="align-dc mono">dcterms:modified</td><td class="align-marc">362 — Dates of Publication</td><td class="align-schema mono">schema:endDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Founded</td><td class="align-dc mono">dcterms:created</td><td class="align-marc">362 — Dates of Publication</td><td class="align-schema mono">schema:foundingDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Released</td><td class="align-dc mono">dcterms:date</td><td class="align-marc">518 — Date/Time of an Event</td><td class="align-schema mono">schema:endDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="when"><td class="meta-item">Designated as foreign agent</td><td class="align-dc mono">dcterms:date</td><td class="align-marc">518 — Date/Time of an Event</td><td class="align-schema mono">schema:startDate</td><td class="align-cidoc mono">crm:P4_has_time-span</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr class="align-group-row" data-group="where"><td colspan="7"><span class="align-group-label">WHERE</span></td></tr>
+<tr data-cat="where"><td class="meta-item">Location</td><td class="align-dc mono">dcterms:spatial</td><td class="align-marc">852 — Location</td><td class="align-schema mono">schema:location</td><td class="align-cidoc mono">crm:P7_took_place_at</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="where"><td class="meta-item">Jurisdiction</td><td class="align-dc mono">dcterms:spatial</td><td class="align-marc">110 — Main Entry · Corporate Name</td><td class="align-schema mono">schema:areaServed</td><td class="align-cidoc mono">crm:P7_took_place_at</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="where"><td class="meta-item">Speech location</td><td class="align-dc mono">dcterms:spatial</td><td class="align-marc">518 — Date/Time of an Event Note</td><td class="align-schema mono">schema:locationCreated</td><td class="align-cidoc mono">crm:P7_took_place_at</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+<tr data-cat="where"><td class="meta-item">Fled to</td><td class="align-dc mono">dcterms:spatial</td><td class="align-marc">852 — Location</td><td class="align-schema mono">schema:location</td><td class="align-cidoc mono">crm:P26_moved_to</td><td class="align-bibo mono align-na">N/A</td><td class="align-aio mono align-na">N/A</td></tr>
+</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 7+8 — THEORETICAL MODEL & ENHANCED E/R -->
+  <section id="theoretical" class="section section--metadata">
+    <div class="items-inner">
+      <div class="about-label">
+        <span class="mono">§ 06</span>
+        <span>THEORETICAL MODEL</span>
+      </div>
+
+      <div class="ko-sub-header">
+        <h2 class="ko-title">Theoretical Model &amp; Enhanced E/R Model</h2>
+      </div>
+
+      <!-- Graph switcher 2 -->
+      <div class="graph-switcher" id="switcher-2">
+        <div class="graph-tabs">
+          <button class="graph-tab active" data-target="graph-2a">Theoretical Model</button>
+          <button class="graph-tab" data-target="graph-2b">Enhanced E/R Model</button>
+        </div>
+        <div class="graph-panel active" id="graph-2a">
+          <p class="ko-desc" style="margin-bottom:1.5rem">The <strong>Theoretical Model</strong> provides a detailed list of properties for each item in the dataset, enriching the Conceptual Map with additional information retrieved from authoritative external sources including <strong>Wikidata</strong>, <strong>VIAF</strong>, the <strong>Library of Congress</strong>, and official institutional websites. For each entity, new properties were identified by answering the four fundamental questions — WHO, WHAT, WHEN, and WHERE — going beyond what is explicitly stated on the source Wikipedia page.</p>
+          <div class="mindmap-wrap">
+            <iframe src="graphs/theoretical_graph.html" title="Theoretical Model" class="graph-iframe"></iframe>
+          </div>
+          <div style="display:flex;gap:1.2rem;align-items:center;margin-top:1.2rem;flex-wrap:wrap">
+            <span class="mono" style="font-size:.6rem;color:var(--text-dimmer);letter-spacing:.14em;text-transform:uppercase">Legend</span>
+            <span style="display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.65rem;color:var(--text-dim)"><span style="width:14px;height:14px;border-radius:50%;background:#2d3748;border:2px solid #1a202c;display:inline-block"></span>Original attribute</span>
+            <span style="display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.65rem;color:var(--text-dim)"><span style="width:14px;height:14px;border-radius:50%;background:#7a5010;border:2px solid #5a3800;display:inline-block"></span>New entity ✦</span>
+          </div>
+        </div>
+        <div class="graph-panel" id="graph-2b" id="enhanced-er">
+          <p class="ko-desc" style="margin-bottom:1.5rem">The <strong>Enhanced E/R Model</strong> updates the original E/R Model on the basis of the new entities and relationships identified at the theoretical stage.</p>
+          <div class="mindmap-wrap">
+            <iframe src="graphs/enhanced_er_graph.html" title="Enhanced E/R Model" class="graph-iframe"></iframe>
+          </div>
+          <div style="display:flex;gap:1.2rem;align-items:center;margin-top:1rem;flex-wrap:wrap">
+            <span class="mono" style="font-size:.6rem;color:var(--text-dimmer);letter-spacing:.14em;text-transform:uppercase">Legend</span>
+            <span style="display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.65rem;color:var(--text-dim)"><span style="width:14px;height:14px;border-radius:50%;background:#2d4a3e;border:2px solid #1a3028;display:inline-block"></span>Original entity type</span>
+            <span style="display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.65rem;color:var(--text-dim)"><span style="width:14px;height:14px;border-radius:50%;background:#7a5010;border:2px solid #5a3800;display:inline-block"></span>New entity type ✦</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 9 — CONCEPTUAL MODEL -->
+  <section id="conceptual-model" class="section section--metadata">
+    <div class="items-inner">
+      <div class="about-label">
+        <span class="mono">§ 08</span>
+        <span>CONCEPTUAL MODEL</span>
+      </div>
+
+      <div class="ko-sub-header">
+        <h2 class="ko-title">Conceptual Model</h2>
+        <p class="ko-desc">Transitioning from the Theoretical Model to the Conceptual Model, the most suitable ontologies were identified to represent the project's items in detail. As a starting point, the <a href="https://lov.linkeddata.es/" target="_blank" class="meta-link">Linked Open Vocabularies (LOV)</a> search engine was used to identify the most appropriate and widely adopted vocabularies. The most common ontologies were preferred to ensure data interoperability.</p>
+      </div>
+
+
+
+
+      <div class="mindmap-wrap">
+        <iframe src="graphs/conceptual_model_graph.html" title="Conceptual Model" class="graph-iframe"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 10 — ITEMS DESCRIPTION -->
+  <section id="items-description" class="section section--metadata">
+    <div class="items-inner">
+      <div class="about-label">
+        <span class="mono">§ 09</span>
+        <span>ITEMS DESCRIPTION</span>
+      </div>
+
+      <div class="ko-sub-header">
+        <h2 class="ko-title">Items Description</h2>
+        <p class="ko-desc">This section presents the formal description of each item in the dataset as a set of RDF triples. Each entity is identified by a URI in camelCase notation and described through subject-predicate-object statements using terms drawn from the adopted ontologies: CIDOC-CRM, Dublin Core, Schema.org, BIBO, and Agreements Ontology. URIs refer to other entities within the dataset or to external authority records, while literal values represent strings, dates, and descriptive information. Temporal values are represented as intermediate nodes of type <code>crm:E52_Time-Span</code>, following the CIDOC-CRM convention for time spans.</p>
+      </div>
+
+      <div class="entity-btns">
+        <button class="entity-btn" data-entity="russianCensorshipPolicy">Russian Censorship Policy 2022</button>
+        <button class="entity-btn" data-entity="russoUkrainianWar">Russo-Ukrainian war</button>
+        <button class="entity-btn" data-entity="federalLaw32FZ">Federal Law No. 32-FZ</button>
+        <button class="entity-btn" data-entity="novayaGazeta">Novaya Gazeta</button>
+        <button class="entity-btn" data-entity="marinaOvsyannikova">Marina Ovsyannikova</button>
+        <button class="entity-btn" data-entity="endCensorship">End Censorship on Voices Against the War</button>
+        <button class="entity-btn" data-entity="buchaMassacre">Bucha massacre</button>
+        <button class="entity-btn" data-entity="ovdInfo">OVD-Info</button>
+        <button class="entity-btn" data-entity="roskomnadzor">Roskomnadzor</button>
+        <button class="entity-btn" data-entity="echrRuling">ECHR ruling</button>
+        <button class="entity-btn" data-entity="alexeiGorinov">Alexei Gorinov</button>
+        <button class="entity-btn" data-entity="vladimirKaraMurza">Vladimir Kara-Murza</button>
+      </div>
+
+      <div class="rdf-table-wrap" id="rdf-russianCensorshipPolicy" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P17_was_motivated_by</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">russoUkrainianWar</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P16_used_specific_object</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P16_used_specific_object</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">novayaGazeta</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P11_had_participant</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">marinaOvsyannikova</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P11_had_participant</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">alexeiGorinov</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P11_had_participant</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">vladimirKaraMurza</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P67_refers_to</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">endCensorship</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P17_was_motivated_by</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">buchaMassacre</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P16_used_specific_object</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">ovdInfo</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P14_carried_out_by</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">roskomnadzor</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russianCensorshipPolicy</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P67_refers_to</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">echrRuling</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-russoUkrainianWar" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russoUkrainianWar</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:russoUkrainian_originDate</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:russoUkrainian_originDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:russoUkrainian_originDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"2014"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russoUkrainianWar</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:russoUkrainian_startDate</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:russoUkrainian_startDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:russoUkrainian_startDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"24 February 2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">russoUkrainianWar</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E5_Event</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-federalLaw32FZ" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P14_carried_out_by</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">stateDuma</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:federalLaw_dateAdopted</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:federalLaw_dateAdopted</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:federalLaw_dateAdopted</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"4 March 2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P14_carried_out_by</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">vladimirPutin</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:description</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"15 years imprisonment"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P14_carried_out_by</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">roskomnadzor</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P67_refers_to</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">endCensorship</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P67_refers_to</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">echrRuling</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">federalLaw32FZ</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">aio:Law</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-aio">Agreements Ontology</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-novayaGazeta" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">novayaGazeta</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">schema:founder</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">dmitryMuratov</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-schema">Schema.org</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">novayaGazeta</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E74_Group</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">novayaGazeta</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:novayaGazeta_suspended</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:novayaGazeta_suspended</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:novayaGazeta_suspended</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"March 2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">novayaGazeta</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:novayaGazeta_licenceRevoked</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:novayaGazeta_licenceRevoked</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:novayaGazeta_licenceRevoked</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"September 2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-marinaOvsyannikova" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">marinaOvsyannikova</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P26_moved_to</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"Paris, France"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">marinaOvsyannikova</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">schema:jobTitle</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"Journalist"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-schema">Schema.org</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">marinaOvsyannikova</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">schema:worksFor</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">channelOneRussia</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-schema">Schema.org</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">marinaOvsyannikova</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:ovsyannikova_protestDate</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:ovsyannikova_protestDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:ovsyannikova_protestDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"14 March 2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">marinaOvsyannikova</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:description</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"8.5 years in absentia"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">marinaOvsyannikova</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E21_Person</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-endCensorship" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">endCensorship</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:identifier</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"EUR 46/5345/2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">endCensorship</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">bibo:Report</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-bibo">BIBO</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">endCensorship</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:publisher</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">amnestyInternational</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">endCensorship</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P129_is_about</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"Freedom of expression"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">endCensorship</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:endCensorship_date</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:endCensorship_date</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:endCensorship_date</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"14 March 2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-buchaMassacre" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">buchaMassacre</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P16_used_specific_object</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">internationalCriminalCourt</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">buchaMassacre</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:bucha_date</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:bucha_date</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:bucha_date</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"March–April 2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">buchaMassacre</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P7_took_place_at</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"Bucha, Ukraine"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">buchaMassacre</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P14_carried_out_by</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">russianArmedForces</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">buchaMassacre</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E5_Event</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-ovdInfo" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">ovdInfo</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:ovdInfo_foreignAgent</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:ovdInfo_foreignAgent</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:ovdInfo_foreignAgent</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"29 September 2021"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">ovdInfo</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E74_Group</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">ovdInfo</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:ovdInfo_founded</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:ovdInfo_founded</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:ovdInfo_founded</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"2011"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">ovdInfo</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:description</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"10,000+"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-roskomnadzor" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">roskomnadzor</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">schema:parentOrganization</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">ministryOfDigitalDevelopment</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-schema">Schema.org</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">roskomnadzor</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E74_Group</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">roskomnadzor</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P7_took_place_at</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"Russian Federation"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">roskomnadzor</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P16_used_specific_object</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">novayaGazeta</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-echrRuling" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">echrRuling</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:identifier</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"11884/22 and 161 others"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">echrRuling</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">bibo:LegalDocument</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-bibo">BIBO</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">echrRuling</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:echr_date</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:echr_date</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:echr_date</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"11 February 2025"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">echrRuling</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:publisher</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">europeanCourtOfHumanRights</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-alexeiGorinov" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">alexeiGorinov</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P67_refers_to</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">article207_3</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">alexeiGorinov</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">schema:jobTitle</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"Municipal deputy"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-schema">Schema.org</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">alexeiGorinov</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:description</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"7 years imprisonment"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">alexeiGorinov</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:gorinov_sentenceDate</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:gorinov_sentenceDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:gorinov_sentenceDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"July 2022"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">alexeiGorinov</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E21_Person</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rdf-table-wrap" id="rdf-vladimirKaraMurza" style="display:none">
+        <table class="meta-table rdf-table">
+          <thead><tr>
+            <th class="mono">Subject</th>
+            <th class="mono">Predicate</th>
+            <th class="mono">Object</th>
+            <th class="mono">Standard</th>
+          </tr></thead>
+          <tbody>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">vladimirKaraMurza</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:karaMurza_releaseDate</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:karaMurza_releaseDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:karaMurza_releaseDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"August 2024"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">vladimirKaraMurza</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">schema:jobTitle</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"Opposition politician"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-schema">Schema.org</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">vladimirKaraMurza</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">dcterms:description</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"25 years imprisonment"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-dc">Dublin Core</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">vladimirKaraMurza</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P4_has_time-span</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">time:karaMurza_sentenceDate</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:karaMurza_sentenceDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E52_Time-Span</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="rdf-timerow">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">time:karaMurza_sentenceDate</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">crm:P82_at_some_time_within</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"April 2023"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">vladimirKaraMurza</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">schema:locationCreated</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-lit">"Arizona, USA"</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-schema">Schema.org</span></td>
+            </tr>
+            <tr class="">
+              <td class="rdf-cell rdf-subj"><span class="rdf-uri">vladimirKaraMurza</span></td>
+              <td class="rdf-cell rdf-pred"><span class="rdf-pred">rdf:type</span></td>
+              <td class="rdf-cell rdf-obj"><span class="rdf-uri">crm:E21_Person</span></td>
+              <td class="rdf-cell rdf-stdcell"><span class="rdf-std std-cidoc">CIDOC-CRM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+            <div class="meta-rationale" style="margin-bottom:2.5rem">
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label meta-standard--cidoc">CIDOC-CRM</span>
+          <p>A core ontology enabling information exchange between heterogeneous sources of cultural heritage information. Used to represent events, persons, organisations, places, and the complex relationships between them. <a href="https://www.cidoc-crm.org/html/cidoc_crm_v7.1.3.html" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label meta-standard--dc">Dublin Core Terms</span>
+          <p>Provides a universal vocabulary for basic bibliographic description, used across all item types for properties such as title, date, publisher, and identifier. <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label meta-standard--schema">Schema.org</span>
+          <p>Used for attribute-level descriptions of persons and organisations, providing properties such as <code>schema:jobTitle</code>, <code>schema:worksFor</code>, <code>schema:founder</code>, and <code>schema:parentOrganization</code>. <a href="https://schema.org/docs/schemas.html" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label meta-standard--marc">BIBO</span>
+          <p>Provides precise classes for bibliographic resources — <code>bibo:Report</code> for the Amnesty International report and the ECHR ruling, and <code>bibo:LegalDocument</code> for legal references. <a href="http://bibliontology.com/" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+        <div class="meta-rationale-item">
+          <span class="meta-rationale-label" style="color:#a070c0">Agreements Ontology</span>
+          <p>Designed to model social contracts including laws, licenses, and standards. Used to represent Federal Law No. 32-FZ through the class <code>aio:Law</code>. <a href="https://github.com/nicholascar/agr-ont" target="_blank" class="meta-link">Documentation →</a></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+    </div>
+  </section>
+    </div>
+  </section>
+
+  <!-- SECTION 11 — URI PRODUCTION -->
+  <section id="uri-production" class="section section--metadata">
+    <div class="items-inner">
+      <div class="about-label">
+        <span class="mono">§ 10</span>
+        <span>URI PRODUCTION</span>
+      </div>
+      <div class="ko-sub-header">
+        <h2 class="ko-title">URI Production</h2>
+        <p class="ko-desc">In this step URIs are created for all entities in the dataset. Unique identifiers are organised into paths according to the nature of each entity: <code>/item</code> for the 11 main items, <code>/person</code> for individuals, <code>/org</code> for organisations, <code>/doc</code> for documents, <code>/time</code> for temporal spans, and <code>/place</code> for locations.</p>
+      </div>
+      <div class="uri-list" style="font-family:var(--font-mono);font-size:0.72rem;white-space:nowrap;overflow-x:auto">
+      <div class="uri-row uri-base-row"><span class="uri-base">https://w3id.org/russiancensorshiplod</span></div>
+      <div class="uri-type-header uri-type-item">/item</div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">russianCensorshipPolicy2022</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">russoUkrainianWar</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">federalLaw32FZ</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">novayaGazeta</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">endCensorshipAmnestyReport</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">buchaMassacre</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">ovdInfo</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">roskomnadzor</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">echrRuling</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">alexeiGorinov</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">vladimirKaraMurza</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-item">item/</span><span class="uri-slug">marinaOvsyannikova</span></div>
+      <div class="uri-type-header uri-type-person">/person</div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-person">person/</span><span class="uri-slug">vladimirPutin</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-person">person/</span><span class="uri-slug">dmitryMuratov</span></div>
+      <div class="uri-type-header uri-type-org">/org</div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-org">org/</span><span class="uri-slug">stateDuma</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-org">org/</span><span class="uri-slug">channelOneRussia</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-org">org/</span><span class="uri-slug">russianArmedForces</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-org">org/</span><span class="uri-slug">internationalCriminalCourt</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-org">org/</span><span class="uri-slug">europeanCourtOfHumanRights</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-org">org/</span><span class="uri-slug">amnestyInternational</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-org">org/</span><span class="uri-slug">ministryOfDigitalDevelopment</span></div>
+      <div class="uri-type-header uri-type-doc">/doc</div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-doc">doc/</span><span class="uri-slug">article2073</span></div>
+      <div class="uri-type-header uri-type-place">/place</div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-place">place/</span><span class="uri-slug">buchaUkraine</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-place">place/</span><span class="uri-slug">parisFrance</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-place">place/</span><span class="uri-slug">russianFederation</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-place">place/</span><span class="uri-slug">arizonaUSA</span></div>
+      <div class="uri-type-header uri-type-time">/time</div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">gorinov_sentenceDate</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">bucha_date</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">echr_date</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">endCensorship_date</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">federalLaw_dateAdopted</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">ovsyannikova_protestDate</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">novayaGazeta_suspended</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">novayaGazeta_licenceRevoked</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">ovdInfo_foreignAgent</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">ovdInfo_founded</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">russoUkrainian_originDate</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">russoUkrainian_startDate</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">karaMurza_releaseDate</span></div>
+      <div class="uri-row"><span class="uri-base-muted">https://w3id.org/russiancensorshiplod/</span><span class="uri-path uri-time">time/</span><span class="uri-slug">karaMurza_sentenceDate</span></div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 13 — TEI PRODUCTION -->
+<section id="tei-production" class="section section--metadata">
+  <div class="items-inner">
+
+    <div class="about-label">
+      <span class="mono">§ 12</span>
+      <span>TEI → RDF Transformation Pipeline</span>
+    </div>
+
+    <div class="ko-sub-header">
+      <h2 class="ko-title">TEI → RDF Transformation Pipeline</h2>
+
+      <p class="ko-desc">
+        This section documents the transformation pipeline used to convert TEI/XML into RDF triples. The process is implemented through Python scripts that extract semantic annotations from the TEI structure and map them to RDF classes and properties aligned with the selected ontologies.
+      </p>
+
+      <p class="ko-desc" style="margin-top:0.8rem">
+        The workflow includes the TEI/XML source file, an XSLT stylesheet for
+        XML-to-HTML transformation, generated HTML output, and Python scripts
+        used for XML-to-HTML and XML-to-RDF conversion processes.
+      </p>
+
+      <div class="tei-note">
+        <span class="mono tei-note-label">FILES</span>
+
+        <div class="tei-note-files">
+          <code>tei.xml</code>
+          <code>tei_to_html.xsl</code>
+          <code>tei.html</code>
+          <code>xml_to_html.py</code>
+          <code>xml_to_rdf.py</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="rdf-download-wrap">
+      <a href="tei/tei.xml" download="tei.xml" class="rdf-download-btn">
+        <span class="rdf-download-icon">↓</span>
+        <span class="rdf-download-label">Download <code>tei.xml</code></span>
+        <span class="rdf-download-sub">TEI XML format</span>
+      </a>
+    </div>
+
+    <div class="rdf-preview">
+      <div class="rdf-preview-header">
+        <span class="mono rdf-preview-title">tei.xml</span>
+        <a href="tei/tei.xml" target="_blank" class="meta-link">Open raw ↗</a>
+      </div>
+
+      <pre class="rdf-code">
+<code id="tei-code-block">Loading…</code>
+      </pre>
+    </div>
+
+  </div>
+</section>
+
+<div class="img-divider"></div>
+
+  <!-- SECTION 12 — RDF PRODUCTION -->
+  <section id="rdf-production" class="section section--metadata">
+    <div class="items-inner">
+      <div class="about-label">
+        <span class="mono">§ 11</span>
+        <span>RDF PRODUCTION</span>
+      </div>
+
+      <div class="ko-sub-header">
+        <h2 class="ko-title">RDF Serialization</h2>
+        <p class="ko-desc">TThis section presents the RDF serialization of the dataset in Turtle format, representing the final Linked Open Data layer of the project.</p>
+  
+      </div>
+
+      <div class="rdf-download-wrap">
+        <a href="rdf.ttl" download="rdf.ttl" class="rdf-download-btn">
+          <span class="rdf-download-icon">↓</span>
+          <span class="rdf-download-label">Download <code>rdf.ttl</code></span>
+          <span class="rdf-download-sub">Turtle format · 209 triples</span>
+        </a>
+      </div>
+
+      <div class="rdf-preview">
+        <div class="rdf-preview-header">
+          <span class="mono rdf-preview-title">rdf.ttl</span>
+          <a href="rdf.ttl" target="_blank" class="meta-link">Open raw ↗</a>
+        </div>
+        <pre class="rdf-code"><code id="rdf-code-block">Loading…</code></pre>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="img-divider"></div>
+
+  <!-- SECTION 13 — RDF VISUALIZATION -->
+  <section id="rdf-visualization" class="section section--metadata">
+    <div class="items-inner">
+      <div class="about-label">
+        <span class="mono">§ 12</span>
+        <span>RDF VISUALIZATION</span>
+      </div>
+
+      <div class="ko-sub-header">
+        <h2 class="ko-title">RDF Visualization</h2>
+        <p class="ko-desc">This section presents a graphical representation of the RDF dataset produced in the previous step. The same triples serialised in Turtle format are here displayed as a node-edge graph, where each URI appears as a node and each predicate appears as a directed edge connecting subject to object. Nodes can be dragged to rearrange the layout. Scroll to zoom.</p>
+      </div>
+
+      <div style="margin-top:2rem;margin-bottom:1rem">
+        <a href="graphs/rdf_graph.html" target="_blank" class="rdf-download-btn" style="display:inline-flex">
+          <span class="rdf-download-icon" style="font-size:1.1rem">↗</span>
+          <span class="rdf-download-label">Open graph in full screen</span>
+          <span class="rdf-download-sub">pan · zoom · drag</span>
+        </a>
+      </div>
+      <div class="mindmap-wrap">
+        <iframe src="graphs/rdf_graph.html" title="RDF Visualization" class="graph-iframe" style="background:#fff;pointer-events:none"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span class="mono footer-copy">© 2026 — LOD Project on Russian Censorship Policy 2022</span>
+      <span class="mono footer-copy">Linked Open Data · DHDK</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

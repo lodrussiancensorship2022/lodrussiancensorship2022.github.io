@@ -1,0 +1,45 @@
+Property,Dublin Core,MARC21,Schema.org,CIDOC-CRM,BIBO,Agreements Ontology,WHO/WHAT/WHEN/WHERE
+Title / Name,dcterms:title,240 - Uniform Title,schema:name,crm:E35_Title,dcterms:title,N/A,WHAT
+Type,dcterms:type,336 - Content Type,schema:additionalType,rdf:type,rdf:type,aio:Agreement,WHAT
+Subject,dcterms:subject,072 - Subject Category Code,schema:about,crm:P129_is_about,dcterms:subject,N/A,WHAT
+Identifier,dcterms:identifier,003 - Control Number Identifier,schema:identifier,crm:E42_Identifier,bibo:identifier,N/A,WHAT
+Maximum penalty,dcterms:description,500 - General Note,schema:description,N/A,N/A,N/A,WHAT
+Sentenced,dcterms:description,500 - General Note,schema:description,N/A,N/A,N/A,WHAT
+Documented cases,dcterms:description,500 - General Note,schema:description,N/A,N/A,N/A,WHAT
+Relation between entities,dcterms:relation,787 - Other Relationship Entry,schema:isRelatedTo,crm:P67_refers_to,N/A,N/A,WHAT
+First conviction under,dcterms:relation,787 - Other Relationship Entry,schema:isRelatedTo,crm:P67_refers_to,N/A,N/A,WHAT
+Condemned by,dcterms:relation,787 - Other Relationship Entry,schema:isRelatedTo,crm:P67_refers_to,N/A,N/A,WHAT
+Ruled against by,dcterms:relation,787 - Other Relationship Entry,schema:isRelatedTo,crm:P67_refers_to,N/A,N/A,WHAT
+Triggered by,dcterms:relation,787 - Other Relationship Entry,schema:isRelatedTo,crm:P17_was_motivated_by,N/A,N/A,WHAT
+Silenced / Blocked,dcterms:relation,787 - Other Relationship Entry,schema:isRelatedTo,crm:P16_used_specific_object,N/A,N/A,WHAT
+Implemented through,dcterms:relation,787 - Other Relationship Entry,schema:isRelatedTo,crm:P16_used_specific_object,N/A,N/A,WHAT
+Escalated after,dcterms:relation,787 - Other Relationship Entry,schema:isRelatedTo,crm:P17_was_motivated_by,N/A,N/A,WHAT
+Has type (Law),dcterms:type,336 - Content Type,schema:additionalType,rdf:type,N/A,aio:Law,WHAT
+Has type (Report),dcterms:type,336 - Content Type,schema:additionalType,rdf:type,bibo:Report,N/A,WHAT
+Has type (Legal document),dcterms:type,336 - Content Type,schema:additionalType,rdf:type,bibo:LegalDocument,N/A,WHAT
+Date adopted,dcterms:created,388 - Time Period of Creation,schema:dateCreated,crm:P4_has_time-span,N/A,N/A,WHEN
+Date of event,dcterms:date,518 - Date/Time of an Event,schema:startDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Sentence date,dcterms:date,518 - Date/Time of an Event,schema:endDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Protest date,dcterms:date,518 - Date/Time of an Event,schema:startDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Start date,dcterms:created,362 - Dates of Publication,schema:startDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Conflict origin date,dcterms:created,362 - Dates of Publication,schema:startDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Suspended / Revoked,dcterms:modified,362 - Dates of Publication,schema:endDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Founded,dcterms:created,362 - Dates of Publication,schema:foundingDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Released,dcterms:date,518 - Date/Time of an Event,schema:endDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Designated as foreign agent,dcterms:date,518 - Date/Time of an Event,schema:startDate,crm:P4_has_time-span,N/A,N/A,WHEN
+Location,dcterms:spatial,852 - Location,schema:location,crm:P7_took_place_at,N/A,N/A,WHERE
+Jurisdiction,dcterms:spatial,110 - Main Entry - Corporate Name,schema:areaServed,crm:P7_took_place_at,N/A,N/A,WHERE
+Speech location,dcterms:spatial,518 - Date/Time of an Event Note,schema:locationCreated,crm:P7_took_place_at,N/A,N/A,WHERE
+Fled to,dcterms:spatial,852 - Location,schema:location,crm:P26_moved_to,N/A,N/A,WHERE
+Creator / Signed by,dcterms:creator,100 - Main Entry - Personal Name,schema:author,crm:P14_carried_out_by,N/A,N/A,WHO
+Publisher / Issued by,dcterms:publisher,710 - Added Entry - Corporate Name,schema:publisher,N/A,bibo:authorList,N/A,WHO
+Enforced by,dcterms:contributor,710 - Added Entry - Corporate Name,schema:contributor,crm:P14_carried_out_by,N/A,N/A,WHO
+Perpetrator,dcterms:contributor,511 - Participant or Performer,schema:participant,crm:P14_carried_out_by,N/A,N/A,WHO
+Occupation,dcterms:description,374 - Occupation,schema:jobTitle,N/A,N/A,N/A,WHO
+Employer,dcterms:relation,373 - Associated Group,schema:worksFor,N/A,N/A,N/A,WHO
+Founded by,dcterms:creator,100 - Main Entry - Personal Name,schema:founder,crm:P14_carried_out_by,N/A,N/A,WHO
+Parent organization,dcterms:relation,710 - Added Entry - Corporate Name,schema:parentOrganization,N/A,N/A,N/A,WHO
+Investigated by,dcterms:contributor,511 - Participant or Performer,schema:contributor,crm:P16_used_specific_object,N/A,N/A,WHO
+Monitored by,dcterms:contributor,710 - Added Entry - Corporate Name,schema:contributor,crm:P14_carried_out_by,N/A,N/A,WHO
+Adopted by,dcterms:contributor,710 - Added Entry - Corporate Name,schema:contributor,crm:P14_carried_out_by,N/A,N/A,WHO
+Prosecuted,dcterms:relation,511 - Participant or Performer,schema:participant,crm:P11_had_participant,N/A,N/A,WHO

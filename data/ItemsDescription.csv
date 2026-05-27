@@ -1,0 +1,94 @@
+Entity,Subject,Predicate,Object,Standard
+Alexei Gorinov,alexeiGorinov,crm:P67_refers_to,article207_3,CIDOC-CRM
+Alexei Gorinov,alexeiGorinov,schema:jobTitle,Municipal deputy,Schema.org
+Alexei Gorinov,alexeiGorinov,dcterms:description,7 years imprisonment,Dublin Core
+Alexei Gorinov,alexeiGorinov,crm:P4_has_time-span,time:gorinov_sentenceDate,CIDOC-CRM
+Alexei Gorinov,time:gorinov_sentenceDate,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Alexei Gorinov,time:gorinov_sentenceDate,crm:P82_at_some_time_within,July 2022,CIDOC-CRM
+Alexei Gorinov,alexeiGorinov,rdf:type,crm:E21_Person,CIDOC-CRM
+Bucha massacre,buchaMassacre,crm:P16_used_specific_object,internationalCriminalCourt,CIDOC-CRM
+Bucha massacre,buchaMassacre,crm:P4_has_time-span,time:bucha_date,CIDOC-CRM
+Bucha massacre,time:bucha_date,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Bucha massacre,time:bucha_date,crm:P82_at_some_time_within,March–April 2022,CIDOC-CRM
+Bucha massacre,buchaMassacre,crm:P7_took_place_at,"Bucha, Ukraine",CIDOC-CRM
+Bucha massacre,buchaMassacre,crm:P14_carried_out_by,russianArmedForces,CIDOC-CRM
+Bucha massacre,buchaMassacre,rdf:type,crm:E5_Event,CIDOC-CRM
+ECHR ruling,echrRuling,dcterms:identifier,11884/22 and 161 others,Dublin Core
+ECHR ruling,echrRuling,rdf:type,bibo:LegalDocument,BIBO
+ECHR ruling,echrRuling,crm:P4_has_time-span,time:echr_date,CIDOC-CRM
+ECHR ruling,time:echr_date,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+ECHR ruling,time:echr_date,crm:P82_at_some_time_within,11 February 2025,CIDOC-CRM
+ECHR ruling,echrRuling,dcterms:publisher,europeanCourtOfHumanRights,Dublin Core
+End Censorship on Voices Against the War,endCensorship,dcterms:identifier,EUR 46/5345/2022,Dublin Core
+End Censorship on Voices Against the War,endCensorship,rdf:type,bibo:Report,BIBO
+End Censorship on Voices Against the War,endCensorship,dcterms:publisher,amnestyInternational,Dublin Core
+End Censorship on Voices Against the War,endCensorship,crm:P129_is_about,Freedom of expression,CIDOC-CRM
+End Censorship on Voices Against the War,endCensorship,crm:P4_has_time-span,time:endCensorship_date,CIDOC-CRM
+End Censorship on Voices Against the War,time:endCensorship_date,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+End Censorship on Voices Against the War,time:endCensorship_date,crm:P82_at_some_time_within,14 March 2022,CIDOC-CRM
+Federal Law No. 32-FZ,federalLaw32FZ,crm:P14_carried_out_by,stateDuma,CIDOC-CRM
+Federal Law No. 32-FZ,federalLaw32FZ,crm:P4_has_time-span,time:federalLaw_dateAdopted,CIDOC-CRM
+Federal Law No. 32-FZ,time:federalLaw_dateAdopted,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Federal Law No. 32-FZ,time:federalLaw_dateAdopted,crm:P82_at_some_time_within,4 March 2022,CIDOC-CRM
+Federal Law No. 32-FZ,federalLaw32FZ,crm:P14_carried_out_by,vladimirPutin,CIDOC-CRM
+Federal Law No. 32-FZ,federalLaw32FZ,dcterms:description,15 years imprisonment,Dublin Core
+Federal Law No. 32-FZ,federalLaw32FZ,crm:P14_carried_out_by,roskomnadzor,CIDOC-CRM
+Federal Law No. 32-FZ,federalLaw32FZ,crm:P67_refers_to,endCensorship,CIDOC-CRM
+Federal Law No. 32-FZ,federalLaw32FZ,crm:P67_refers_to,echrRuling,CIDOC-CRM
+Federal Law No. 32-FZ,federalLaw32FZ,rdf:type,aio:Law,Agreements Ontology
+Marina Ovsyannikova,marinaOvsyannikova,crm:P26_moved_to,"Paris, France",CIDOC-CRM
+Marina Ovsyannikova,marinaOvsyannikova,schema:jobTitle,Journalist,Schema.org
+Marina Ovsyannikova,marinaOvsyannikova,schema:worksFor,channelOneRussia,Schema.org
+Marina Ovsyannikova,marinaOvsyannikova,crm:P4_has_time-span,time:ovsyannikova_protestDate,CIDOC-CRM
+Marina Ovsyannikova,time:ovsyannikova_protestDate,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Marina Ovsyannikova,time:ovsyannikova_protestDate,crm:P82_at_some_time_within,14 March 2022,CIDOC-CRM
+Marina Ovsyannikova,marinaOvsyannikova,dcterms:description,8.5 years in absentia,Dublin Core
+Marina Ovsyannikova,marinaOvsyannikova,rdf:type,crm:E21_Person,CIDOC-CRM
+Novaya Gazeta,novayaGazeta,schema:founder,dmitryMuratov,Schema.org
+Novaya Gazeta,novayaGazeta,rdf:type,crm:E74_Group,CIDOC-CRM
+Novaya Gazeta,novayaGazeta,crm:P4_has_time-span,time:novayaGazeta_suspended,CIDOC-CRM
+Novaya Gazeta,time:novayaGazeta_suspended,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Novaya Gazeta,time:novayaGazeta_suspended,crm:P82_at_some_time_within,March 2022,CIDOC-CRM
+Novaya Gazeta,novayaGazeta,crm:P4_has_time-span,time:novayaGazeta_licenceRevoked,CIDOC-CRM
+Novaya Gazeta,time:novayaGazeta_licenceRevoked,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Novaya Gazeta,time:novayaGazeta_licenceRevoked,crm:P82_at_some_time_within,September 2022,CIDOC-CRM
+OVD-Info,ovdInfo,crm:P4_has_time-span,time:ovdInfo_foreignAgent,CIDOC-CRM
+OVD-Info,time:ovdInfo_foreignAgent,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+OVD-Info,time:ovdInfo_foreignAgent,crm:P82_at_some_time_within,29 September 2021,CIDOC-CRM
+OVD-Info,ovdInfo,rdf:type,crm:E74_Group,CIDOC-CRM
+OVD-Info,ovdInfo,crm:P4_has_time-span,time:ovdInfo_founded,CIDOC-CRM
+OVD-Info,time:ovdInfo_founded,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+OVD-Info,time:ovdInfo_founded,crm:P82_at_some_time_within,2011,CIDOC-CRM
+OVD-Info,ovdInfo,dcterms:description,"10,000+",Dublin Core
+Roskomnadzor,roskomnadzor,schema:parentOrganization,ministryOfDigitalDevelopment,Schema.org
+Roskomnadzor,roskomnadzor,rdf:type,crm:E74_Group,CIDOC-CRM
+Roskomnadzor,roskomnadzor,crm:P7_took_place_at,Russian Federation,CIDOC-CRM
+Roskomnadzor,roskomnadzor,crm:P16_used_specific_object,novayaGazeta,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P17_was_motivated_by,russoUkrainianWar,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P16_used_specific_object,federalLaw32FZ,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P16_used_specific_object,novayaGazeta,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P11_had_participant,marinaOvsyannikova,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P11_had_participant,alexeiGorinov,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P11_had_participant,vladimirKaraMurza,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P67_refers_to,endCensorship,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P17_was_motivated_by,buchaMassacre,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P16_used_specific_object,ovdInfo,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P14_carried_out_by,roskomnadzor,CIDOC-CRM
+Russian Censorship Policy 2022,russianCensorshipPolicy,crm:P67_refers_to,echrRuling,CIDOC-CRM
+Russo-Ukrainian war,russoUkrainianWar,crm:P4_has_time-span,time:russoUkrainian_originDate,CIDOC-CRM
+Russo-Ukrainian war,time:russoUkrainian_originDate,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Russo-Ukrainian war,time:russoUkrainian_originDate,crm:P82_at_some_time_within,2014,CIDOC-CRM
+Russo-Ukrainian war,russoUkrainianWar,crm:P4_has_time-span,time:russoUkrainian_startDate,CIDOC-CRM
+Russo-Ukrainian war,time:russoUkrainian_startDate,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Russo-Ukrainian war,time:russoUkrainian_startDate,crm:P82_at_some_time_within,24 February 2022,CIDOC-CRM
+Russo-Ukrainian war,russoUkrainianWar,rdf:type,crm:E5_Event,CIDOC-CRM
+Vladimir Kara-Murza,vladimirKaraMurza,crm:P4_has_time-span,time:karaMurza_releaseDate,CIDOC-CRM
+Vladimir Kara-Murza,time:karaMurza_releaseDate,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Vladimir Kara-Murza,time:karaMurza_releaseDate,crm:P82_at_some_time_within,August 2024,CIDOC-CRM
+Vladimir Kara-Murza,vladimirKaraMurza,schema:jobTitle,Opposition politician,Schema.org
+Vladimir Kara-Murza,vladimirKaraMurza,dcterms:description,25 years imprisonment,Dublin Core
+Vladimir Kara-Murza,vladimirKaraMurza,crm:P4_has_time-span,time:karaMurza_sentenceDate,CIDOC-CRM
+Vladimir Kara-Murza,time:karaMurza_sentenceDate,rdf:type,crm:E52_Time-Span,CIDOC-CRM
+Vladimir Kara-Murza,time:karaMurza_sentenceDate,crm:P82_at_some_time_within,April 2023,CIDOC-CRM
+Vladimir Kara-Murza,vladimirKaraMurza,schema:locationCreated,"Arizona, USA",Schema.org
+Vladimir Kara-Murza,vladimirKaraMurza,rdf:type,crm:E21_Person,CIDOC-CRM

@@ -1,0 +1,12 @@
+Item,Type,Provider,Metadata Standard
+Russo-Ukrainian war,Event,Library of Congress,MARC21
+Federal Law No. 32-FZ of 4 March 2022,Legal document,publication.pravo.gov.ru,Dublin Core*
+Novaya Gazeta,Newspaper,VIAF / Library of Congress,MARC21
+Marina Ovsyannikova,Person,Wikipedia / VIAF / ISNI,CIDOC-CRM*
+End Censorship on Voices Against the War,Report,Amnesty International,Dublin Core*
+Bucha massacre,Event,Wikipedia,Schema.org*
+OVD-Info,Organization,VIAF / ovdinfo.org,CIDOC-CRM*
+Roskomnadzor,Organization,VIAF / rkn.gov.ru,CIDOC-CRM*
+ECHR ruling,Legal document,European Court of Human Rights,Dublin Core*
+Alexei Gorinov,Person,Wikipedia / VIAF,CIDOC-CRM*
+Vladimir Kara-Murza,Person,VIAF / Library of Congress / ISNI,MARC21

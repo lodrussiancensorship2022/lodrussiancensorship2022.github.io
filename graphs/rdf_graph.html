@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>RDF Visualization — Russian Censorship Policy 2022</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#f5f0eb}
+#canvas{width:100%;height:100%;cursor:grab}
+#canvas:active{cursor:grabbing}
+svg{width:100%;height:100%}
+
+.node-center  ellipse{fill:#ede8fa;stroke:#7a4fa8;stroke-width:2}
+.node-item    ellipse{fill:#f5f0ff;stroke:#5555aa;stroke-width:1.5}
+.node-class   ellipse{fill:#fff8f0;stroke:#c8903a;stroke-width:1}
+.node-uri     ellipse{fill:#f5f2ff;stroke:#9b9bd5;stroke-width:1}
+.node-lit     ellipse{fill:#fafaf8;stroke:#ccc;stroke-width:1}
+.node-time    ellipse{fill:#f0fff5;stroke:#2a7a4a;stroke-width:1;stroke-dasharray:4 2}
+
+.node text{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#222;
+  pointer-events:none;text-anchor:middle;dominant-baseline:middle;
+}
+.node-center text{font-size:11px;font-weight:500;fill:#3a1a5a}
+.node-item   text{fill:#2a2a77}
+.node-class  text{fill:#c8903a}
+.node-uri    text{fill:#333388}
+.node-lit    text{fill:#555}
+.node-time   text{fill:#3aaa6a}
+
+.edge{fill:none}
+.edge-label{
+  font-family:'IBM Plex Mono',monospace;font-size:8.5px;
+  fill:#666;pointer-events:none;
+}
+
+#ns-box{
+  position:fixed;bottom:12px;left:12px;
+  background:rgba(245,240,235,0.97);
+  border:1px solid rgba(0,0,0,0.1);border-radius:6px;
+  padding:8px 12px;
+  font-family:'IBM Plex Mono',monospace;font-size:8px;color:#777;line-height:1.9;
+  pointer-events:none;z-index:10;
+}
+#hint{
+  position:fixed;top:10px;right:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:9px;color:#aaa;z-index:10
+}
+</style>
+</head>
+<body>
+<div id="canvas"></div>
+<div id="ns-box">
+  <strong>Namespaces</strong><br>
+  crm:&nbsp;&nbsp;&nbsp;&nbsp; http://www.cidoc-crm.org/cidoc-crm/<br>
+  dcterms: http://purl.org/dc/terms/<br>
+  schema:&nbsp; https://schema.org/<br>
+  bibo:&nbsp;&nbsp;&nbsp; http://purl.org/ontology/bibo/<br>
+  aio:&nbsp;&nbsp;&nbsp;&nbsp; https://w3id.org/agreements-ontology#<br>
+  owl:&nbsp;&nbsp;&nbsp;&nbsp; http://www.w3.org/2002/07/owl#<br>
+  base:&nbsp;&nbsp;&nbsp; https://w3id.org/russiancensorshiplod/
+</div>
+<div id="hint">scroll to zoom · drag to pan</div>
+
+<script>
+const CENTER = {
+  subject: 'item/russianCensorship\nPolicy2022',
+  nodeType: 'center',
+  links: [
+    ['item/russoUkrainianWar',           'crm:P17_was_motivated_by'],
+    ['item/federalLaw32FZ',              'crm:P16_used_specific_object'],
+    ['item/novayaGazeta',                'crm:P16_used_specific_object'],
+    ['item/marinaOvsyannikova',          'crm:P11_had_participant'],
+    ['item/alexeiGorinov',               'crm:P11_had_participant'],
+    ['item/vladimirKaraMurza',           'crm:P11_had_participant'],
+    ['item/endCensorshipAmnestyReport',  'crm:P67_refers_to'],
+    ['item/buchaMassacre',               'crm:P17_was_motivated_by'],
+    ['item/ovdInfo',                     'crm:P16_used_specific_object'],
+    ['item/roskomnadzor',                'crm:P14_carried_out_by'],
+    ['item/echrRuling',                  'crm:P67_refers_to'],
+  ]
+};
+
+const GROUPS = [
+  { subject:'item/russoUkrainianWar', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'crm:E5_Event',                   'class'],
+      ['crm:P4_has_time-span',        'time/russoUkrainian_originDate', 'time'],
+      ['crm:P82_at_some_time_within', '"2014"',                         'lit'],
+      ['crm:P4_has_time-span',        'time/russoUkrainian_startDate',  'time'],
+      ['crm:P82_at_some_time_within', '"24 February 2022"',             'lit'],
+      ['owl:sameAs',                  'wd:Q15860072',                   'uri'],
+      ['owl:sameAs',                  'lcnaf:sh2023001220',             'uri'],
+    ]
+  },
+  { subject:'item/federalLaw32FZ', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'aio:Law',                        'class'],
+      ['crm:P14_carried_out_by',      'org/stateDuma',                  'uri'],
+      ['crm:P4_has_time-span',        'time/federalLaw_dateAdopted',   'time'],
+      ['crm:P82_at_some_time_within', '"4 March 2022"',                 'lit'],
+      ['crm:P14_carried_out_by',      'person/vladimirPutin',           'uri'],
+      ['dcterms:description',         '"15 years imprisonment"',        'lit'],
+      ['crm:P14_carried_out_by',      'item/roskomnadzor',              'uri'],
+      ['crm:P67_refers_to',           'item/endCensorshipAmnestyReport','uri'],
+      ['crm:P67_refers_to',           'item/echrRuling',                'uri'],
+      ['owl:sameAs',                  'wd:Q111272312',                  'uri'],
+    ]
+  },
+  { subject:'item/novayaGazeta', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'crm:E74_Group',                      'class'],
+      ['schema:founder',              'person/dmitryMuratov',               'uri'],
+      ['owl:sameAs',                  'wd:Q170135',                         'uri'],
+      ['crm:P4_has_time-span',        'time/novayaGazeta_suspended',       'time'],
+      ['crm:P82_at_some_time_within', '"March 2022"',                       'lit'],
+      ['crm:P4_has_time-span',        'time/novayaGazeta_licenceRevoked',  'time'],
+      ['crm:P82_at_some_time_within', '"September 2022"',                   'lit'],
+      ['owl:sameAs',                  'viaf:210803108',                     'uri'],
+      ['owl:sameAs',                  'lcnaf:no2021153865',                 'uri'],
+    ]
+  },
+  { subject:'item/marinaOvsyannikova', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'crm:E21_Person',                    'class'],
+      ['crm:P26_moved_to',            'place/parisFrance',                 'uri'],
+      ['schema:jobTitle',             '"Journalist"',                      'lit'],
+      ['schema:worksFor',             'org/channelOneRussia',              'uri'],
+      ['crm:P4_has_time-span',        'time/ovsyannikova_protestDate',     'time'],
+      ['crm:P82_at_some_time_within', '"14 March 2022"',                   'lit'],
+      ['dcterms:description',         '"8.5 years in absentia"',           'lit'],
+      ['owl:sameAs',                  'wd:Q111239656',                     'uri'],
+      ['owl:sameAs',                  'viaf:391164782071208600004',        'uri'],
+      ['owl:sameAs',                  'isni:0000000512337302',             'uri'],
+    ]
+  },
+  { subject:'item/endCensorshipAmnestyReport', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'bibo:Report',                   'class'],
+      ['dcterms:identifier',          '"EUR 46/5345/2022"',            'lit'],
+      ['dcterms:publisher',           'org/amnestyInternational',      'uri'],
+      ['crm:P129_is_about',           '"Freedom of expression"',       'lit'],
+      ['crm:P4_has_time-span',        'time/endCensorship_date',       'time'],
+      ['crm:P82_at_some_time_within', '"14 March 2022"',               'lit'],
+    ]
+  },
+  { subject:'item/buchaMassacre', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'crm:E5_Event',                  'class'],
+      ['crm:P16_used_specific_object','org/internationalCriminalCourt','uri'],
+      ['crm:P4_has_time-span',        'time/bucha_date',               'time'],
+      ['crm:P82_at_some_time_within', '"March–April 2022"',            'lit'],
+      ['crm:P7_took_place_at',        'place/buchaUkraine',            'uri'],
+      ['crm:P14_carried_out_by',      'org/russianArmedForces',        'uri'],
+      ['owl:sameAs',                  'wd:Q111988562',                 'uri'],
+    ]
+  },
+  { subject:'item/ovdInfo', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'crm:E74_Group',             'class'],
+      ['crm:P4_has_time-span',        'time/ovdInfo_foreignAgent', 'time'],
+      ['crm:P82_at_some_time_within', '"29 September 2021"',       'lit'],
+      ['crm:P4_has_time-span',        'time/ovdInfo_founded',      'time'],
+      ['crm:P82_at_some_time_within', '"2011"',                    'lit'],
+      ['dcterms:description',         '"10,000+"',                 'lit'],
+      ['owl:sameAs',                  'wd:Q33243309',              'uri'],
+      ['owl:sameAs',                  'viaf:4054166007098375590007', 'uri'],
+    ]
+  },
+  { subject:'item/roskomnadzor', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'crm:E74_Group',                      'class'],
+      ['schema:parentOrganization',   'org/ministryOfDigitalDevelopment',   'uri'],
+      ['crm:P7_took_place_at',        'place/russianFederation',            'uri'],
+      ['crm:P16_used_specific_object','item/novayaGazeta',                  'uri'],
+      ['owl:sameAs',                  'wd:Q129597',                         'uri'],
+      ['owl:sameAs',                  'viaf:33173969759423392099',           'uri'],
+    ]
+  },
+  { subject:'item/echrRuling', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'bibo:LegalDocument',                'class'],
+      ['dcterms:identifier',          '"11884/22 and 161 others"',         'lit'],
+      ['crm:P4_has_time-span',        'time/echr_date',                    'time'],
+      ['crm:P82_at_some_time_within', '"11 February 2025"',                'lit'],
+      ['dcterms:publisher',           'org/europeanCourtOfHumanRights',    'uri'],
+    ]
+  },
+  { subject:'item/alexeiGorinov', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'crm:E21_Person',            'class'],
+      ['crm:P67_refers_to',           'doc/article2073',           'uri'],
+      ['schema:jobTitle',             '"Municipal deputy"',        'lit'],
+      ['dcterms:description',         '"7 years imprisonment"',    'lit'],
+      ['crm:P4_has_time-span',        'time/gorinov_sentenceDate', 'time'],
+      ['crm:P82_at_some_time_within', '"July 2022"',               'lit'],
+      ['owl:sameAs',                  'wd:Q112971444',             'uri'],
+      ['owl:sameAs',                  'viaf:529165750876954220003','uri'],
+    ]
+  },
+  { subject:'item/vladimirKaraMurza', nodeType:'item',
+    triples:[
+      ['rdf:type',                    'crm:E21_Person',                'class'],
+      ['schema:jobTitle',             '"Opposition politician"',       'lit'],
+      ['dcterms:description',         '"25 years imprisonment"',       'lit'],
+      ['schema:locationCreated',      'place/arizonaUSA',              'uri'],
+      ['crm:P4_has_time-span',        'time/karaMurza_sentenceDate',   'time'],
+      ['crm:P82_at_some_time_within', '"April 2023"',                  'lit'],
+      ['crm:P4_has_time-span',        'time/karaMurza_releaseDate',    'time'],
+      ['crm:P82_at_some_time_within', '"August 2024"',                 'lit'],
+      ['owl:sameAs',                  'wd:Q4213414',                   'uri'],
+      ['owl:sameAs',                  'lcnaf:n2011073476',             'uri'],
+      ['owl:sameAs',                  'viaf:187459324',                'uri'],
+      ['owl:sameAs',                  'isni:0000000140042748',         'uri'],
+    ]
+  },
+];
+
+// ── LAYOUT ────────────────────────────────────────────────────────────────────
+const ROW_H     = 38;
+const GROUP_PAD = 52;
+const MARGIN    = 40;
+const LH        = 13;
+const C0 = MARGIN + 220;
+const C1 = C0 + 1100;
+const C2 = C1 + 1100;
+
+function nodeW(lbl) {
+  const mx = lbl.split('\n').reduce((a,b) => a.length>b.length?a:b,'');
+  return Math.max(110, mx.length*6+36);
+}
+
+const nodes = new Map();
+const edges = [];
+
+function addNode(id, lbl, type, x, y) {
+  if (!nodes.has(id)) {
+    const lines = lbl.split('\n');
+    const w = nodeW(lbl), h = Math.max(20, lines.length*LH+10);
+    nodes.set(id, {id, label:lbl, type, x, y, w, h, lines});
+  }
+  return nodes.get(id);
+}
+
+let curY = MARGIN + 20;
+const itemYMap = new Map();
+
+GROUPS.forEach(grp => {
+  const nRows = grp.triples.length;
+  const blockH = nRows * ROW_H;
+  const midY = curY + blockH/2 - ROW_H/2;
+  itemYMap.set(grp.subject, midY);
+  addNode(grp.subject, grp.subject, `node-${grp.nodeType}`, C1, midY);
+  grp.triples.forEach(([pred, obj, otype], ti) => {
+    const oy = curY + ti * ROW_H;
+    const oid = `${grp.subject}||${ti}||${obj}`;
+    addNode(oid, obj, `node-${otype}`, C2, oy);
+    edges.push({s: grp.subject, t: oid, lbl: pred, col: 'item'});
+  });
+  curY += blockH + GROUP_PAD;
+});
+
+const allItemYs = GROUPS.map(g => itemYMap.get(g.subject));
+const centerY   = (Math.min(...allItemYs) + Math.max(...allItemYs)) / 2;
+addNode('__center__', CENTER.subject, 'node-center', C0, centerY);
+
+CENTER.links.forEach(([itemSubject, pred]) => {
+  if (itemYMap.has(itemSubject)) {
+    edges.push({s: '__center__', t: itemSubject, lbl: pred, col: 'center'});
+  }
+});
+
+const totalW = C2 + 300;
+const totalH = curY + MARGIN;
+
+// ── SVG ───────────────────────────────────────────────────────────────────────
+const svg = d3.select('#canvas').append('svg');
+const g   = svg.append('g');
+
+const zoom = d3.zoom().scaleExtent([0.04, 8])
+  .on('zoom', e => g.attr('transform', e.transform));
+svg.call(zoom);
+
+requestAnimationFrame(() => {
+  const vw = window.innerWidth, vh = window.innerHeight;
+  const scale = Math.min(vw/totalW, vh/totalH) * 0.90;
+  const tx = (vw - totalW*scale)/2;
+  const ty = (vh - totalH*scale)/2;
+  svg.call(zoom.transform, d3.zoomIdentity.translate(tx,ty).scale(scale));
+});
+
+svg.append('defs').html(`
+  <marker id="arr"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+    <path d="M0,2 L9,5 L0,8Z" fill="#aaa"/>
+  </marker>
+  <marker id="arr-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+    <path d="M0,2 L9,5 L0,8Z" fill="#7a4fa8"/>
+  </marker>
+  <marker id="arr-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+    <path d="M0,2 L9,5 L0,8Z" fill="#2a7a4a"/>
+  </marker>
+`);
+
+// EDGES
+edges.forEach(e => {
+  const s = nodes.get(e.s), t = nodes.get(e.t);
+  if (!s||!t) return;
+  const x1 = s.x + s.w/2, y1 = s.y;
+  const x2 = t.x - t.w/2, y2 = t.y;
+  const mx = (x1+x2)/2;
+  const isCenter = e.col === 'center';
+  const isTime   = t.type === 'node-time';
+  const stroke   = isCenter ? '#9b7fe8' : isTime ? '#2a7a4a' : '#bbb';
+  const marker   = isCenter ? 'arr-c'   : isTime ? 'arr-t'   : 'arr';
+
+  g.append('path').attr('class','edge')
+    .attr('d', `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`)
+    .attr('stroke', stroke)
+    .attr('stroke-width', isCenter ? 1.2 : 0.9)
+    .attr('stroke-dasharray', isTime ? '4 3' : null)
+    .attr('marker-end', `url(#${marker})`);
+
+  if (!isCenter) {
+    g.append('text').attr('class','edge-label')
+      .attr('x', mx)
+      .attr('y', (y1+y2)/2 - 5)
+      .attr('text-anchor','middle')
+      .attr('fill', isTime ? '#2a7a4a' : '#999')
+      .text(e.lbl);
+  }
+});
+
+// NODES
+nodes.forEach(n => {
+  const ng = g.append('g').attr('class', `node ${n.type}`);
+  ng.append('ellipse')
+    .attr('cx', n.x).attr('cy', n.y)
+    .attr('rx', n.w/2).attr('ry', n.h/2);
+  n.lines.forEach((line,i) => {
+    ng.append('text')
+      .attr('x', n.x)
+      .attr('y', n.y - (n.lines.length-1)*LH/2 + i*LH)
+      .text(line);
+  });
+});
+</script>
+</body>
+</html>
